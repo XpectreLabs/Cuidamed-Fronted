@@ -1,10 +1,11 @@
 import React from 'react'
 
+import BasicLayout from "../layouts/BasicLayout";
 
 export default function Home() {
   return (
-    <div>
-      <h1 className="color">Cuidamed</h1>
-    </div>
+    <BasicLayout>
+      <h2 className="color">Cuidamed</h2>
+    </BasicLayout>
   )
 }
