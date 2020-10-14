@@ -1,14 +1,6 @@
 @import "./colors.scss";
 @import "./breakpoints.scss";
 
-@font-face {
-  font-family: "Comfortaa";
-  src: url("../fonts/comfortaa/Comfortaa-Regular.woff") format("woff");
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-
 .color {
   color: red;
 }
