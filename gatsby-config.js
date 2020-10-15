@@ -7,6 +7,7 @@ module.exports = {
   plugins: [
     `gatsby-plugin-sass`,
     `gatsby-plugin-react-helmet`,
+    'gatsby-plugin-svgr',
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -32,7 +33,7 @@ module.exports = {
       resolve: `gatsby-plugin-react-svg`,
       options: {
         rule: {
-        include: /images\/icons/, 
+          include: /images\/icons/, 
         }
       }
     },
