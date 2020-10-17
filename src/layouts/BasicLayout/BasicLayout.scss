@@ -6,15 +6,37 @@
     min-height: 100vh;
 
     > .column {
-      padding: 0px;
+      padding: 0;
 
       &:first-of-type {
         background-color: $main;
       }
 
       &:last-of-type {
-        > h1 {
+        > .justify-content {
+          display: flex;
           justify-content: center;
+          margin-top: 35px;
+        }
+
+        > .inputs-sex {
+          display: flex;
+          justify-items: center;
+          justify-content: space-around;
+
+          > img {
+            width: 12em;
+          }
+        }
+
+        > .svg {
+          display: flex;
+          justify-content: center;
+          margin-top: 15em;
+
+          svg {
+            margin-right: 1em;
+          }
         }
       }
     }
