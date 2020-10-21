@@ -23,39 +23,34 @@
     }
     
     > .container {
-        padding-bottom: 0.5em;
+        height: 90vh;
+        .row {
+            padding: 1em;
+        }
 
-        .label {
+        .title {
             display: block;
             background-color: transparent;
-            margin-top: 10%;
-            font-size: 3em;
-            font-weight: normal;
+            margin-top: 2em;
+            margin-bottom: 1.5em;
+            font-family: 'Comfortaa';
+            font-size: 2.5em;
+            font-weight: lighter;
             color: #ffffff;
             text-align: center;
             padding: 0;
         }
 
-        .focus.input {
-            margin-top: 5em;
+
+        #labelEmail, #labelPassword {
+            background-color: transparent;
+            padding-top: 6px;
+            padding-left: 4px;
+            padding-right: 4px;
         }
 
-
-        .input {
-            display: block;
-            margin: 0 auto;
-            text-align: center;
-            margin-bottom: 2em;
-
-            > input {
-                width: 13.5em;
-                // height: 74px;
-                border-radius: 2em;
-                font-size: 30px;
-                text-align: center;
-
-            }
-
+        #email, #password {
+            width: 16em;
         }
 
         .button {
@@ -63,11 +58,12 @@
             background-color: #ffffff;
             margin: 0 auto;
             padding: 0;
-            width: 13.5em;
-            height: 3em;
+            width: 12em;
+            height: 2.1em;
             border-radius: 2em;
             color: $secondary;
             border: 2px solid $secondary;
+            font-family: 'Comfortaa';
             font-size: 2em;
             font-weight: 400;
 
@@ -79,7 +75,7 @@
         }
 
         .emergency {
-            margin-bottom: 2em;
+            margin-top: 2.5em;
             color: #ffffff;
             background-color: $red;
             border: 2px solid $red;

@@ -1,6 +1,7 @@
 import React from 'react'
 import { Container, Grid, Header, Label, Input, Button, Image } from 'semantic-ui-react'
 import Logo from "../../images/CuidamedLogo.png"
+import Text from "../inputsCustom/Text"
 import "./Login.scss"
 
 export default function Login() {
@@ -23,13 +24,15 @@ export default function Login() {
             <Container className="container">
                 <Grid centered>
                     <Grid.Row>
-                        <Label>Entrar a la cuenta</Label>
+                        <Label className="title">Entrar a la cuenta</Label>
                     </Grid.Row>
                     <Grid.Row>
-                        <Input focus placeholder='Correo electrónico' />
+                        <Text labelPlaceholder="Correo electrónico" name="email" labelName="labelEmail" />
+                        {/* <Input focus placeholder='Correo electrónico' /> */}
                     </Grid.Row>
                     <Grid.Row>
-                        <Input placeholder='Contraseña' type="password" />
+                        <Text labelPlaceholder="Contraseña" name="password" labelName="labelPassword" />
+                        {/* <Input placeholder='Contraseña' type="password" /> */}
                     </Grid.Row>
                     <Grid.Row>
                         <Button>Iniciar sesión</Button>

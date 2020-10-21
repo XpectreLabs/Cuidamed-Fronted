@@ -2,28 +2,37 @@
 
 .input-custom {
   position: relative;
-  margin-top: 30px;
-  > .input input {
-    width: 24em !important;
-  }
+  margin-top: 5px;
+  margin-left: 5px;
+  width: fit-content;
 
   > .move-label {
-    animation: slide-in 1s forwards;
-    font-size: 26px !important;
+    animation: slide-in 0.5s forwards ease-in-out;
+    font-size: 1.5em !important;
+  }
+  
+  > .input input {
+    width: 100%;
+    font-size: 1.5em;
+    
+    border-radius: 1.5em;
+    text-align: center;
   }
 
   > .label {
-    margin-top: 0px !important;
+    width: 100%;
+    margin: auto auto !important;
     font-weight: normal;
     padding: 0;
-    color: $color-dark-light !important;
-
+    color: $color-dark-light;
+    background-color: transparent;
+    font-size: 1.8em;
+    left: 0;
+    right: 0;
     //posicionamiento
     position: absolute;
     margin: auto auto;
-    left: 0;
-    right: 0;
-    top: 0.6em;
+    top: 0.7em;
     text-align: center;
     z-index: 2;
   }
@@ -31,11 +40,12 @@
 
 @keyframes slide-in {
   from {
+    
   }
 
   to {
+    right: 4em;
     top: -0.35em;
-    right: 17em;
     width: fit-content;
     background-color: $white;
     margin-left: auto;
