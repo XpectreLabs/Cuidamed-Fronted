@@ -1,6 +1,6 @@
 import React from 'react'
 
-import './InputCustom.scss'
+import './Text.scss'
 
 export default class InputCustom extends React.Component {
 

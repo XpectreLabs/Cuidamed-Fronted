@@ -1,7 +1,7 @@
 import React from 'react'
 import  { Container, Grid, Image} from 'semantic-ui-react'
 import NavBarSecondary from '../../components/NavBarSecondary'
-import InputCustom from '../../components/InputCustom'
+import Text from '../../components/inputsCustom/Text'
 import {ReactComponent as IconBineta} from "../../images/icons/BiñetaGrey.svg"
 
 //imagenes
@@ -34,7 +34,7 @@ export default function BasicLayout(props) {
                     <Grid.Row className="justify-content">
                         <h1>Información Básica</h1>
                     </Grid.Row>
-                    <InputCustom labelPlaceholder="Nombre completo"  />
+                    <Text labelPlaceholder="Nombre completo"  />
                     <Grid.Row className="justify-content">
                         <h2>Sexo</h2>
                     </Grid.Row>

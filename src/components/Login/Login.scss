@@ -1,47 +1,35 @@
 @import "../../sass/index.scss";
 
-body {
+.login {
     background-color: $main;
     
-    .header {
-        height: 114px;
+    > .header {
+        height: 10%;
         margin: 0 auto;
         text-align: center;
         background-color: #ffffff;
 
         .register {
-            display: inline-block;
-            position: absolute;
-            left: 79px;
-            top: 42px;
 
-            p {
-                font-size: 30px;
-                font-family: "Myanmar Text";
-                color: #000000;
-
+            > p {
                 a {
-                    font-size: 24px;
-                    color: $secondary;
-                    cursor: pointer;
-                    
+                    margin-left: 0.5em;
                 }
             }
         }
-
         .logo {
-            width: 340px !important;
+            width: 50% !important;
         }
     }
     
-    .container {
-        width: 100% !important;
+    > .container {
+        padding-bottom: 0.5em;
 
         .label {
             display: block;
             background-color: transparent;
-            margin-top: 160px;
-            font-size: 40px;
+            margin-top: 10%;
+            font-size: 3em;
             font-weight: normal;
             color: #ffffff;
             text-align: center;
@@ -49,7 +37,7 @@ body {
         }
 
         .focus.input {
-            margin-top: 102px;
+            margin-top: 5em;
         }
 
 
@@ -57,12 +45,12 @@ body {
             display: block;
             margin: 0 auto;
             text-align: center;
-            margin-bottom: 26px;
+            margin-bottom: 2em;
 
-            input {
-                width: 401px;
-                height: 74px;
-                border-radius: 37px;
+            > input {
+                width: 13.5em;
+                // height: 74px;
+                border-radius: 2em;
                 font-size: 30px;
                 text-align: center;
 
@@ -75,12 +63,12 @@ body {
             background-color: #ffffff;
             margin: 0 auto;
             padding: 0;
-            width: 401px;
-            height: 74px;
-            border-radius: 37px;
+            width: 13.5em;
+            height: 3em;
+            border-radius: 2em;
             color: $secondary;
             border: 2px solid $secondary;
-            font-size: 40px;
+            font-size: 2em;
             font-weight: 400;
 
             &:hover {
@@ -91,16 +79,17 @@ body {
         }
 
         .emergency {
-            margin-top: 120px;
-            margin-bottom: 30px;
-            color: $red;
+            margin-bottom: 2em;
+            color: #ffffff;
+            background-color: $red;
             border: 2px solid $red;
 
             &:hover {
-                background-color: #ffffff;
-                color: $red;
-                border: 2px solid $red;
+                background-color: $red;
+                color:  #ffffff;
+                border: 2px solid #ffffff;
             }
         }
     }
+
 }
