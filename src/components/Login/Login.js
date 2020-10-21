@@ -6,7 +6,7 @@ import "./Login.scss"
 
 export default function Login() {
     return (
-        <div>
+        <div className="body">
             <Header className="header">
                 <div className="register">
                     <p>¿No tienes cuenta? <a href="#asda"><span>Crea cuenta</span></a></p>

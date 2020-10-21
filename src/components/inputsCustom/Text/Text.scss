@@ -1,0 +1,53 @@
+@import "../../../sass/index.scss";
+
+.input-custom {
+  position: relative;
+  margin-top: 5px;
+  margin-left: 5px;
+  width: fit-content;
+
+  > .move-label {
+    animation: slide-in 0.5s forwards ease-in-out;
+    font-size: 1.5em !important;
+  }
+  
+  > .input input {
+    width: 100%;
+    font-size: 1.5em;
+    
+    border-radius: 1.5em;
+    text-align: center;
+  }
+
+  > .label {
+    width: 100%;
+    margin: auto auto !important;
+    font-weight: normal;
+    padding: 0;
+    color: $color-dark-light;
+    background-color: transparent;
+    font-size: 1.8em;
+    left: 0;
+    right: 0;
+    //posicionamiento
+    position: absolute;
+    margin: auto auto;
+    top: 0.7em;
+    text-align: center;
+    z-index: 2;
+  }
+}
+
+@keyframes slide-in {
+  from {
+    
+  }
+
+  to {
+    right: 4em;
+    top: -0.35em;
+    width: fit-content;
+    background-color: $white;
+    margin-left: auto;
+  }
+}
