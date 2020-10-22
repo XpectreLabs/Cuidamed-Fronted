@@ -1,8 +1,21 @@
 import React from 'react'
-import { ReactComponent as IconBineta } from "../images/icons/BiñetaGrey.svg"
+import { Grid } from 'semantic-ui-react'
+
+//icons 
 import { ReactComponent as IconMen } from "../images/icons/iconMen.svg"
 import { ReactComponent as IconWomen } from "../images/icons/iconWomen.svg"
-import { Grid } from 'semantic-ui-react'
+import { ReactComponent as IconFechaNacimiento } from "../images/icons/fechaNacimiento.svg"
+import { ReactComponent as IconMapa } from "../images/icons/ubicacion.svg"
+import { ReactComponent as IconMundo } from "../images/icons/mundo.svg"
+import { ReactComponent as IconAltura } from "../images/icons/altura.svg"
+import { ReactComponent as IconPeso } from "../images/icons/peso.svg"
+import { ReactComponent as IconGotaSangre } from "../images/icons/gotaSangre.svg"
+import { ReactComponent as IconOcupacion } from "../images/icons/ocupacion.svg"
+import { ReactComponent as IconGradoEstudio } from "../images/icons/gradoEstudio.svg"
+import { ReactComponent as IconDonador } from "../images/icons/donador.svg"
+import { ReactComponent as IconEstadoCivil } from "../images/icons/estadoCivil.svg"
+import { ReactComponent as IconReligion } from "../images/icons/religion.svg"
+
 import BasicLayout from "../layouts/BasicLayout";
 import Text from '../components/inputsCustom/Text'
 // import Swiper core and required components
@@ -23,50 +36,111 @@ SwiperCore.use([Navigation, Pagination, Scrollbar, A11y]);
 
 export default function InfoBasic() {
 
-    const bullet = []
-
-    for (let index = 0; index < 5; index++) {
-        bullet.push(<IconBineta key={index} className="bineta" ></IconBineta>)
-    }
-
-
     return (
         <BasicLayout view="info-basic">
-            <Swiper
-                spaceBetween={50}
-                slidesPerView={1}
-                navigation
-                pagination={{ clickable: true }}
-                scrollbar={{ draggable: true }}
-                onSwiper={(swiper) => console.log(swiper)}
-                onSlideChange={() => console.log('slide change')}
-            >
-                <SwiperSlide>
-                    <Grid.Row className="justify-content">
-                        <h1>Información Básica</h1>
-                    </Grid.Row >
-
-                    <Text className="justify-content" labelPlaceholder="Nombre completo" name="nombre" labelName="labelNombre" />
-                    <Text className="justify-content" labelPlaceholder="Domicilio " name="domicilio" labelName="labeldomicilio" />
-                    <Grid.Row className="justify-content">
-                        <h2>Sexo</h2>
-                    </Grid.Row>
-                    <Grid.Row className="inputs-sex">
-                        <input id="iconMen" type="radio" name="gender" className="hidden" readOnly="" tabIndex="0" />
-                        <label htmlFor="iconMen"><IconMen /></label>
-                        <input id="iconWomen" type="radio" name="gender" className="hidden" readOnly="" tabIndex="0" />
-                        <label htmlFor="iconWomen"><IconWomen /></label>
-                    </Grid.Row>
-                    <Grid.Row className="svg">
-                        {bullet}
-                    </Grid.Row>
-                </SwiperSlide>
-                <SwiperSlide>Slide 2</SwiperSlide>
-                <SwiperSlide>Slide 3</SwiperSlide>
-                <SwiperSlide>Slide 4</SwiperSlide>
-                ...
-                </Swiper>
             <Grid.Row className="justify-content">
+                <h1>Información Básica</h1>
+            </Grid.Row >
+            <Grid.Row>
+                <Swiper
+                    spaceBetween={50}
+                    slidesPerView={1}
+                    navigation
+                    pagination={{ clickable: true }}
+                    // scrollbar={{ draggable: true }}
+                    onSwiper={(swiper) => console.log(swiper)}
+                    onSlideChange={() => console.log('slide change')}
+                    className="slider-content"
+                >
+                    <SwiperSlide>
+                        {/* <Text className="justify-content" labelPlaceholder="Nombre completo" name="nombre" labelName="labelNombre" />
+                    <Text className="justify-content" labelPlaceholder="Domicilio " name="domicilio" labelName="labeldomicilio" /> */}
+                        <Grid.Row className="justify-content">
+                            <h2>Sexo</h2>
+                        </Grid.Row>
+                        <Grid.Row className="inputs-sex">
+                            <input id="iconMen" type="radio" name="gender" className="hidden" readOnly="" tabIndex="0" />
+                            <label htmlFor="iconMen"><IconMen /></label>
+                            <input id="iconWomen" type="radio" name="gender" className="hidden" readOnly="" tabIndex="0" />
+                            <label htmlFor="iconWomen"><IconWomen /></label>
+                        </Grid.Row>
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <div className="slider-two">
+                            <div>
+                                <IconFechaNacimiento />
+                                <Text className="justify-content" labelPlaceholder="Fecha de nacimiento" name="fechaNacimiento" labelName="labelFechaNacimiento" />
+                            </div>
+                            <div>
+                                <IconMapa />
+                                <Text className="justify-content" labelPlaceholder="Lugar de nacimiento" name="lugarNacimiento" labelName="labelLugarNacimiento" />
+                            </div>
+                            <div>
+                                <IconMundo />
+                                <Text className="justify-content" labelPlaceholder="País de nacimiento" name="paisNacimiento" labelName="labelPaisNacimiento" />
+                            </div>
+                        </div>
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <div className="slider-two">
+                            <div>
+                                <IconAltura />
+                                <Text className="justify-content" labelPlaceholder="Altura (cm)" name="altura" labelName="labelAltura" />
+                            </div>
+                            <div>
+                                <IconPeso />
+                                <Text className="justify-content" labelPlaceholder="Peso (kg)" name="peso" labelName="labelPeso" />
+                            </div>
+                            <div>
+                                <IconGotaSangre />
+                                <Text className="justify-content" labelPlaceholder="Tipo Sangre" name="tipoSangre" labelName="labelTipoSangre" />
+                            </div>
+                        </div>
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <div className="slider-two">
+                            <div>
+                                <IconMapa />
+                                <Text className="justify-content" labelPlaceholder="Lugar de residencia" name="lugarResidencia" labelName="labelLugarResidencia" />
+                            </div>
+                            <div>
+                                <IconMundo />
+                                <Text className="justify-content" labelPlaceholder="País de residencia" name="paisResidencia" labelName="labelPaisResidencia" />
+                            </div>
+                        </div>
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <div className="slider-two">
+                            <div>
+                                <IconGradoEstudio />
+                                <Text className="justify-content" labelPlaceholder="Grado máximo de estudios" name="gradoMaximo" labelName="labelGradoMaximo" />
+                            </div>
+                            <div>
+                                <IconOcupacion />
+                                <Text className="justify-content" labelPlaceholder="Ocupación" name="ocupacion" labelName="labelOcupacion" />
+                            </div>
+                        </div>
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <div className="slider-two">
+                            <div>
+                                <IconReligion />
+                                <Text className="justify-content" labelPlaceholder="Relegión" name="relegion" labelName="labelReligion" />
+                            </div>
+                            <div>
+                                <IconEstadoCivil />
+                                <Text className="justify-content" labelPlaceholder="Estado civil" name="estadoCivil" labelName="labelEstadoCivil" />
+                            </div>
+                            <div>
+                                <IconDonador />
+                                <Text className="justify-content" labelPlaceholder="Donador de organos" name="donador" labelName="labelDonador" />
+                            </div>
+                        </div>
+                    </SwiperSlide>
+                </Swiper>
+            </Grid.Row>
+
+            {/* <Grid.Row className="justify-content">
                 <h1>Información Básica</h1>
             </Grid.Row >
 
@@ -83,7 +157,7 @@ export default function InfoBasic() {
             </Grid.Row>
             <Grid.Row className="svg">
                 {bullet}
-            </Grid.Row>
+            </Grid.Row> */}
         </BasicLayout >
     )
 }
