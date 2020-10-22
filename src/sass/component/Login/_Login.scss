@@ -1,0 +1,88 @@
+.login {
+  background-color: $main;
+
+  > .header {
+    height: 10%;
+    margin: 0 auto;
+    text-align: center;
+    background-color: #ffffff;
+
+    .register {
+      > p {
+        a {
+          margin-left: 0.5em;
+        }
+      }
+    }
+    .logo {
+      width: 50% !important;
+    }
+  }
+
+  > .container {
+    height: 90vh;
+    .row {
+      padding: 1em;
+    }
+
+    .title {
+      display: block;
+      background-color: transparent;
+      margin-top: 2em;
+      margin-bottom: 1.5em;
+      font-family: "Comfortaa";
+      font-size: 2.5em;
+      font-weight: lighter;
+      color: #ffffff;
+      text-align: center;
+      padding: 0;
+    }
+
+    #labelEmail,
+    #labelPassword {
+      background-color: transparent;
+      padding-top: 6px;
+      padding-left: 4px;
+      padding-right: 4px;
+    }
+
+    #email,
+    #password {
+      width: 16em;
+    }
+
+    .button {
+      display: block;
+      background-color: #ffffff;
+      margin: 0 auto;
+      padding: 0;
+      width: 12em;
+      height: 2.1em;
+      border-radius: 2em;
+      color: $secondary;
+      border: 2px solid $secondary;
+      font-family: "Comfortaa";
+      font-size: 2em;
+      font-weight: 400;
+
+      &:hover {
+        background-color: $secondary;
+        color: #ffffff;
+        border: 2px solid #ffffff;
+      }
+    }
+
+    .emergency {
+      margin-top: 2.5em;
+      color: #ffffff;
+      background-color: $red;
+      border: 2px solid $red;
+
+      &:hover {
+        background-color: $red;
+        color: #ffffff;
+        border: 2px solid #ffffff;
+      }
+    }
+  }
+}

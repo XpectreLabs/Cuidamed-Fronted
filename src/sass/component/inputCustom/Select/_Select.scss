@@ -1,0 +1,33 @@
+.select-custom {
+  position: relative;
+  width: fit-content;
+
+  &__item {
+    font-size: 1.4em;
+    border-radius: 1.5em !important;
+  }
+
+  .move-select {
+    animation: slide-in 1s forwards;
+    font-size: 1.4em !important;
+  }
+
+  &__label {
+    width: fit-content;
+    margin: auto auto !important;
+    font-weight: normal;
+    padding: 0;
+    color: $color-dark-light;
+    background-color: transparent;
+    font-size: 1.8em;
+    left: 0;
+    right: 0;
+
+    //posicionamiento
+    position: absolute;
+    margin: auto auto;
+    top: 0.7em;
+    text-align: center;
+    z-index: 11;
+  }
+}
