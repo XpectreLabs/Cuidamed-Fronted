@@ -1,5 +1,3 @@
-@import "../../sass/index.scss";
-
 .basic-layout {
   > .ui.grid {
     margin: 0 !important;
@@ -13,16 +11,14 @@
       }
 
       &:last-of-type {
-          
-         .justify-content {
+        .justify-content {
           display: flex;
           justify-content: center;
           margin-top: 35px;
 
-          >h2 {
+          > h2 {
             margin-bottom: 2em;
           }
-          
         }
 
         // > .row .swiper-container {
@@ -80,4 +76,5 @@
       }
     }
   }
+
 }

@@ -9,4 +9,5 @@ export default function InfoBasic() {
             <Slider />
         </BasicLayout >
     )
+
 }
