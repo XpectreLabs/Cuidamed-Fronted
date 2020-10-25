@@ -1,4 +1,14 @@
 .date-input {
-  margin: 0 auto;
-  text-align: center;
+
+  width: 100%;
+  position: relative;
+
+  >.DayPickerInput {
+    >input {
+      font-size: 1.6em;
+      height: 2.4em;
+      border-radius: 1.5em !important; 
+      border-color: $color-dark-light; 
+    }
+  }
 }
