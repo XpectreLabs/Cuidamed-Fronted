@@ -1,14 +1,17 @@
+.icon-selected {
+  background-color: #fff;
+  border-top-left-radius: 2em;
+  border-bottom-left-radius: 2em;
+   >svg path {
+     stroke:$main ;
+   }
+}
+
 .icon-container {
   margin: 2.6em 0px;
   display: flex;
   align-items: center;
   justify-content: center;
-
-  &:first-of-type {
-    background-color: #fff;
-    border-top-left-radius: 2em;
-    border-bottom-left-radius: 2em;
-  }
 
   .bineta {
     stroke: white;

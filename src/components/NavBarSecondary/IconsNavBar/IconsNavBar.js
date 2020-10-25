@@ -37,16 +37,26 @@ const dataIcons = [
 ]
 
 export default function IconsNavBar() {
+
+
   console.log(window.location.pathname)
 
   return (
     <>
-      {map(dataIcons, (icon, index) => (
-        <Link key={index} to={icon.link} className="icon-container">
-          <IconBineta className="bineta"></IconBineta>
+      {map(dataIcons, (icon, index) => {
+        if (window.location.pathname === icon.link) {
+
+          return <Link key={index} to={icon.link} className="icon-container icon-selected">
+            {icon.icon}
+          </Link>
+
+        }
+        return <Link key={index} to={icon.link} className="icon-container">
           {icon.icon}
         </Link>
-      ))}
+
+
+      })}
     </>
   )
 }

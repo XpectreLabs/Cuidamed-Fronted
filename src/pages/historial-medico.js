@@ -1,6 +1,7 @@
 import React from 'react'
 import BasicLayout from "../layouts/BasicLayout"
 import Select from "../components/inputsCustom/Select"
+import InputDate from "../components/inputsCustom/Date"
 
 export default function HistorialMedico() {
 
@@ -12,7 +13,7 @@ export default function HistorialMedico() {
         <BasicLayout view="historial">
             <h1>this is historial medico</h1>
             <Select dataOptions={data} placeholder="Tipo de sangre" labelName="sangre" />
-            <Select dataOptions={data} placeholder="País" labelName="pais" />
+            <InputDate />
         </BasicLayout>
     )
 }
