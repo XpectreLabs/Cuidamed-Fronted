@@ -2,19 +2,21 @@ import React from 'react'
 import { Grid, Container } from 'semantic-ui-react'
 
 //icons 
-import { ReactComponent as IconMen } from "../../images/icons/iconMen.svg"
-import { ReactComponent as IconWomen } from "../../images/icons/iconWomen.svg"
-import { ReactComponent as IconFechaNacimiento } from "../../images/icons/fechaNacimiento.svg"
-import { ReactComponent as IconMapa } from "../../images/icons/ubicacion.svg"
-import { ReactComponent as IconMundo } from "../../images/icons/mundo.svg"
-import { ReactComponent as IconAltura } from "../../images/icons/altura.svg"
-import { ReactComponent as IconPeso } from "../../images/icons/peso.svg"
-import { ReactComponent as IconGotaSangre } from "../../images/icons/gotaSangre.svg"
-import { ReactComponent as IconOcupacion } from "../../images/icons/ocupacion.svg"
-import { ReactComponent as IconGradoEstudio } from "../../images/icons/gradoEstudio.svg"
-import { ReactComponent as IconDonador } from "../../images/icons/donador.svg"
-import { ReactComponent as IconEstadoCivil } from "../../images/icons/estadoCivil.svg"
-import { ReactComponent as IconReligion } from "../../images/icons/religion.svg"
+import {
+    IconMen,
+    IconWomen,
+    IconFechaNacimiento,
+    IconMapa,
+    IconMundo,
+    IconAltura,
+    IconPeso,
+    IconGotaSangre,
+    IconOcupacion,
+    IconGradoEstudio,
+    IconDonador,
+    IconEstadoCivil,
+    IconReligion,
+  } from "../../images/icons/icons"
 
 import Text from '../inputsCustom/Text'
 
@@ -29,7 +31,7 @@ import 'swiper/components/navigation/navigation.scss';
 import 'swiper/components/pagination/pagination.scss';
 import 'swiper/components/scrollbar/scrollbar.scss';
 
-import "./Slider.scss"
+// import "./Slider.scss"
 // install Swiper components
 SwiperCore.use([Navigation, Pagination, Scrollbar, A11y]);
 
@@ -37,8 +39,8 @@ SwiperCore.use([Navigation, Pagination, Scrollbar, A11y]);
 export default function Slider() {
     return (
         <Grid centered verticalAlign='middle' className="slider">
-            <Grid.Row className="justify-content">
-                <h1>Información Básica</h1>
+            <Grid.Row className="title">
+                <h1 className="title">Información Básica</h1>
             </Grid.Row >
             <Grid.Row >
                 <Swiper
@@ -57,9 +59,9 @@ export default function Slider() {
                         <Grid.Row className="justify-content">
                             <h2>Sexo</h2>
                         </Grid.Row>
-                        <Container>
+                        <Container >
                             <Grid verticalAlign='middle'>
-                                <Grid.Row className="inputs-sex">
+                                <Grid.Row className="inputs-sex" verticalAlign='middle'>
                                     <Grid.Column floated='left' width={6}>
                                         <input id="iconMen" type="radio" name="gender" className="hidden" readOnly="" tabIndex="0" />
                                         <label htmlFor="iconMen"><IconMen /><br/><span>Hombre</span></label>
@@ -74,9 +76,6 @@ export default function Slider() {
                     </SwiperSlide>
                     <SwiperSlide>
                         <div className="slider-two">
-                        <Grid.Row className="justify-content">
-                            <h2></h2>
-                        </Grid.Row>
                         {/* <Container> */}
                             <Grid centered columns={3} verticalAlign='middle'>
                                 <Grid.Column width={4}>
@@ -103,9 +102,6 @@ export default function Slider() {
                     </SwiperSlide>
                     <SwiperSlide>
                         <div className="slider-two">
-                        <Grid.Row className="justify-content">
-                            <h2></h2>
-                        </Grid.Row>
                             <Grid centered columns={3} verticalAlign='middle'>
                                 <Grid.Column width={4}>
                                     <div>
@@ -130,9 +126,6 @@ export default function Slider() {
                     </SwiperSlide>
                     <SwiperSlide>
                         <div className="slider-two">
-                        <Grid.Row className="justify-content">
-                            <h2></h2>
-                        </Grid.Row>
                             <Container>
                                 <Grid centered columns={3} verticalAlign='middle'>
                                     <Grid.Column floated='left' width={6}>
@@ -153,9 +146,6 @@ export default function Slider() {
                     </SwiperSlide>
                     <SwiperSlide>
                         <div className="slider-two">
-                        <Grid.Row className="justify-content">
-                            <h2></h2>
-                        </Grid.Row>
                         <Container>
                                 <Grid centered columns={3} verticalAlign='middle'>
                                     <Grid.Column floated='left' width={6}>
@@ -176,9 +166,6 @@ export default function Slider() {
                     </SwiperSlide>
                     <SwiperSlide>
                         <div className="slider-two">
-                        <Grid.Row className="justify-content">
-                            <h2></h2>
-                        </Grid.Row>
                         <Grid centered columns={3} verticalAlign='middle'>
                                 <Grid.Column width={4}>
                                     <div>
@@ -198,10 +185,7 @@ export default function Slider() {
                                         <Text className="justify-content" labelPlaceholder="Donador de organos" name="donador" labelName="labelDonador" />
                                     </div>
                                 </Grid.Column>
-                            </Grid>
-                            
-                            
-                            
+                            </Grid>    
                         </div>
                     </SwiperSlide>
                 </Swiper>
