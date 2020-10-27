@@ -2,22 +2,39 @@
 
 .slider {
     height: 100vh;
-    // background-color: red;
 
-    // .title {
-    //     position: absolute;
-    //     top: 20px;
-    // }
+    .title {
+        position: absolute;
+        top: 1em;
+    }
 
     .swiper-container {
-        // height: inherit;
         margin-left: 1em;
         margin-right: 1em;
-        // background-color: red;
+
+        // .swiper-slide-active {
+        //     display: flex;
+        //     // justify-content: space-between;
+        //     align-items: center;
+        // }
+
+        .container {
+            height: inherit;
+
+        }
+        
+        .slider-two {
+            height: inherit;
+        }
 
         .grid {
-            // height: inherit;
+            height: inherit;
             // text-align: center;
+
+            // h2 {
+            //     position: abolute;
+            //     margin-top: -200px;
+            // }
 
             .hidden {
                 opacity: 0;
@@ -46,6 +63,12 @@
             svg {
                 width: 20em;
                 text-align: center;
+            }
+
+            span {
+                display: block;
+                font-size: 1.5em;
+                margin-top: 1.5em;
             }
         }
 

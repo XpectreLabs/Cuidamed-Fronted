@@ -16,9 +16,12 @@ import {
     IconDonador,
     IconEstadoCivil,
     IconReligion,
+    IconSeguro,
   } from "../../images/icons/icons"
 
 import Text from '../inputsCustom/Text'
+import Date from '../inputsCustom/Date';
+import Select from '../inputsCustom/Select'
 
 // import Swiper core and required components
 import SwiperCore, { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
@@ -38,10 +41,10 @@ SwiperCore.use([Navigation, Pagination, Scrollbar, A11y]);
 
 export default function Slider() {
     return (
-        <Grid centered verticalAlign='middle' className="slider">
-            <Grid.Row className="title">
-                <h1 className="title">Información Básica</h1>
-            </Grid.Row >
+        <Grid centered className="slider">
+            <h1 className="title">Información Básica</h1>
+            {/* <Grid.Row className="title">
+            </Grid.Row > */}
             <Grid.Row >
                 <Swiper
                     spaceBetween={50}
@@ -56,10 +59,10 @@ export default function Slider() {
                     <SwiperSlide>
                         {/* <Text className="justify-content" labelPlaceholder="Nombre completo" name="nombre" labelName="labelNombre" />
                     <Text className="justify-content" labelPlaceholder="Domicilio " name="domicilio" labelName="labeldomicilio" /> */}
-                        <Grid.Row className="justify-content">
-                            <h2>Sexo</h2>
-                        </Grid.Row>
-                        <Container >
+                        <Container verticalAlign='middle'>
+                            {/* <Grid.Row>
+                                <h2>Sexo</h2>
+                            </Grid.Row> */}
                             <Grid verticalAlign='middle'>
                                 <Grid.Row className="inputs-sex" verticalAlign='middle'>
                                     <Grid.Column floated='left' width={6}>
@@ -76,28 +79,27 @@ export default function Slider() {
                     </SwiperSlide>
                     <SwiperSlide>
                         <div className="slider-two">
-                        {/* <Container> */}
                             <Grid centered columns={3} verticalAlign='middle'>
                                 <Grid.Column width={4}>
                                     <div>
                                         <IconFechaNacimiento/>
-                                        <Text className="justify-content" labelPlaceholder="Fecha de nacimiento" name="fechaNacimiento" labelName="labelFechaNacimiento" />
-                                    </div>
-                                </Grid.Column>
-                                <Grid.Column width={4}>
-                                    <div>
-                                        <IconMapa/>
-                                        <Text className="justify-content" labelPlaceholder="Lugar de nacimiento" name="lugarNacimiento" labelName="labelLugarNacimiento" />
+                                        <Date className="justify-content"/>
+                                        {/* <Text className="justify-content" labelPlaceholder="Fecha de nacimiento" name="fechaNacimiento" labelName="labelFechaNacimiento" /> */}
                                     </div>
                                 </Grid.Column>
                                 <Grid.Column width={4}>
                                     <div>
                                         <IconMundo />
-                                        <Text className="justify-content" labelPlaceholder="País de nacimiento" name="paisNacimiento" labelName="labelPaisNacimiento" />
+                                        <Text className="justify-content" labelPlaceholder="Lugar de nacimiento" name="lugarNacimiento" labelName="labelLugarNacimiento" />
+                                    </div>
+                                </Grid.Column>
+                                <Grid.Column width={4}>
+                                    <div>
+                                        <IconMapa/>
+                                        <Text className="justify-content" labelPlaceholder="Lugar de residencia" name="paisNacimiento" labelName="labelPaisNacimiento" />
                                     </div>
                                 </Grid.Column>
                             </Grid>
-                        {/* </Container> */}
                         </div>
                     </SwiperSlide>
                     <SwiperSlide>
@@ -106,19 +108,20 @@ export default function Slider() {
                                 <Grid.Column width={4}>
                                     <div>
                                         <IconAltura />
-                                        <Text className="justify-content" labelPlaceholder="Altura (cm)" name="altura" labelName="labelAltura" />
+                                        <Text className="justify-content" labelPlaceholder="Altura (cm)" type="number" name="altura" labelName="labelAltura" />
                                     </div>
                                 </Grid.Column>
                                 <Grid.Column width={4}>
                                     <div>
                                         <IconPeso />
-                                        <Text className="justify-content" labelPlaceholder="Peso (kg)" name="peso" labelName="labelPeso" />
+                                        <Text className="justify-content" labelPlaceholder="Peso (kg)" type="number" name="peso" labelName="labelPeso" />
                                     </div>
                                 </Grid.Column>
                                 <Grid.Column width={4}>
                                     <div>
                                         <IconGotaSangre />
-                                        <Text className="justify-content" labelPlaceholder="Tipo Sangre" name="tipoSangre" labelName="labelTipoSangre" />
+                                        {/* <Select  placeholder="Tipo de sangre" labelName="sangre" /> */}
+                                        <Text className="justify-content" labelPlaceholder="Tipo de Sangre" name="tipoSangre" labelName="labelTipoSangre" />
                                     </div>
                                 </Grid.Column>
                             </Grid>
@@ -126,42 +129,26 @@ export default function Slider() {
                     </SwiperSlide>
                     <SwiperSlide>
                         <div className="slider-two">
-                            <Container>
-                                <Grid centered columns={3} verticalAlign='middle'>
-                                    <Grid.Column floated='left' width={6}>
-                                        <div>
-                                            <IconMapa />
-                                            <Text className="justify-content" labelPlaceholder="Lugar de residencia" name="lugarResidencia" labelName="labelLugarResidencia" />
-                                        </div>
-                                    </Grid.Column>
-                                    <Grid.Column floated='right' width={6}>
-                                        <div>
-                                            <IconMundo />
-                                            <Text className="justify-content" labelPlaceholder="País de residencia" name="paisResidencia" labelName="labelPaisResidencia" />
-                                        </div>
-                                    </Grid.Column>
-                                </Grid>
-                            </Container>   
-                        </div>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <div className="slider-two">
-                        <Container>
-                                <Grid centered columns={3} verticalAlign='middle'>
-                                    <Grid.Column floated='left' width={6}>
-                                        <div>
-                                            <IconGradoEstudio />
-                                            <Text className="justify-content" labelPlaceholder="Grado máximo de estudios" name="gradoMaximo" labelName="labelGradoMaximo" />
-                                        </div>
-                                    </Grid.Column>
-                                    <Grid.Column floated='right' width={6}>
-                                        <div>
-                                            <IconOcupacion />
-                                            <Text className="justify-content" labelPlaceholder="Ocupación" name="ocupacion" labelName="labelOcupacion" />
-                                        </div>
-                                    </Grid.Column>
-                                </Grid>
-                            </Container>
+                        <Grid centered columns={3} verticalAlign='middle'>
+                            <Grid.Column width={4}>
+                                <div>
+                                    <IconGradoEstudio />
+                                    <Text className="justify-content" labelPlaceholder="Grado de estudios" name="gradoMaximo" labelName="labelGradoMaximo" />
+                                </div>
+                            </Grid.Column>
+                            <Grid.Column width={4}>
+                                <div>
+                                    <IconSeguro />
+                                    <Text className="justify-content" labelPlaceholder="Seguro médico" name="seguro" labelName="labelSeguro" />
+                                </div>
+                            </Grid.Column>
+                            <Grid.Column width={4}>
+                                <div>
+                                    <IconOcupacion />
+                                    <Text className="justify-content" labelPlaceholder="Ocupación" name="ocupacion" labelName="labelOcupacion" />
+                                </div>
+                            </Grid.Column>
+                        </Grid>
                         </div>
                     </SwiperSlide>
                     <SwiperSlide>
@@ -170,7 +157,7 @@ export default function Slider() {
                                 <Grid.Column width={4}>
                                     <div>
                                         <IconReligion />
-                                        <Text className="justify-content" labelPlaceholder="Relegión" name="relegion" labelName="labelReligion" />
+                                        <Text className="justify-content" labelPlaceholder="Religión" name="religion" labelName="labelReligion" />
                                     </div>
                                 </Grid.Column>
                                 <Grid.Column width={4}>
