@@ -42,6 +42,7 @@ export default function Login() {
               labelPlaceholder="Correo electrónico"
               name="email"
               labelName="labelEmail"
+              type="email"
             />
             {/* <Input focus placeholder='Correo electrónico' /> */}
           </Grid.Row>
