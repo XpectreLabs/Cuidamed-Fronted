@@ -11,6 +11,7 @@ import { ReactComponent as IconGradoEstudio } from "./gradoEstudio.svg"
 import { ReactComponent as IconDonador } from "./donador.svg"
 import { ReactComponent as IconEstadoCivil } from "./estadoCivil.svg"
 import { ReactComponent as IconReligion } from "./religion.svg"
+import { ReactComponent as IconSeguro } from "./seguro.svg"
 
 export {
   IconMen,
@@ -26,4 +27,5 @@ export {
   IconDonador,
   IconEstadoCivil,
   IconReligion,
+  IconSeguro
 }

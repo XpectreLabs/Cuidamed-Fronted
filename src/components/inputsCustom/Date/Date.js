@@ -44,8 +44,6 @@ export default class DateInput extends React.Component {
     const { selectedDay } = this.state
     return (
       <div className="date-input">
-        {selectedDay && <p>Day: {selectedDay.toLocaleDateString()}</p>}
-        {!selectedDay && <p>Choose a day</p>}
         <DayPickerInput
           locale="es"
           months={MONTHS}
