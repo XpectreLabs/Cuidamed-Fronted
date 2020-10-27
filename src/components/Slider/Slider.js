@@ -16,7 +16,7 @@ import {
     IconDonador,
     IconEstadoCivil,
     IconReligion,
-  } from "../../images/icons/icons"
+} from "../../images/icons/icons"
 
 import Text from '../inputsCustom/Text'
 
@@ -64,11 +64,11 @@ export default function Slider() {
                                 <Grid.Row className="inputs-sex" verticalAlign='middle'>
                                     <Grid.Column floated='left' width={6}>
                                         <input id="iconMen" type="radio" name="gender" className="hidden" readOnly="" tabIndex="0" />
-                                        <label htmlFor="iconMen"><IconMen /><br/><span>Hombre</span></label>
+                                        <label htmlFor="iconMen"><IconMen /><br /><span>Hombre</span></label>
                                     </Grid.Column>
                                     <Grid.Column floated='right' width={6}>
                                         <input id="iconWomen" type="radio" name="gender" className="hidden" readOnly="" tabIndex="0" />
-                                        <label htmlFor="iconWomen"><IconWomen /><br/><span>Mujer</span></label>
+                                        <label htmlFor="iconWomen"><IconWomen /><br /><span>Mujer</span></label>
                                     </Grid.Column>
                                 </Grid.Row>
                             </Grid>
@@ -76,17 +76,17 @@ export default function Slider() {
                     </SwiperSlide>
                     <SwiperSlide>
                         <div className="slider-two">
-                        {/* <Container> */}
+                            {/* <Container> */}
                             <Grid centered columns={3} verticalAlign='middle'>
                                 <Grid.Column width={4}>
                                     <div>
-                                        <IconFechaNacimiento/>
+                                        <IconFechaNacimiento />
                                         <Text className="justify-content" labelPlaceholder="Fecha de nacimiento" name="fechaNacimiento" labelName="labelFechaNacimiento" />
                                     </div>
                                 </Grid.Column>
                                 <Grid.Column width={4}>
                                     <div>
-                                        <IconMapa/>
+                                        <IconMapa />
                                         <Text className="justify-content" labelPlaceholder="Lugar de nacimiento" name="lugarNacimiento" labelName="labelLugarNacimiento" />
                                     </div>
                                 </Grid.Column>
@@ -97,7 +97,7 @@ export default function Slider() {
                                     </div>
                                 </Grid.Column>
                             </Grid>
-                        {/* </Container> */}
+                            {/* </Container> */}
                         </div>
                     </SwiperSlide>
                     <SwiperSlide>
@@ -141,12 +141,12 @@ export default function Slider() {
                                         </div>
                                     </Grid.Column>
                                 </Grid>
-                            </Container>   
+                            </Container>
                         </div>
                     </SwiperSlide>
                     <SwiperSlide>
                         <div className="slider-two">
-                        <Container>
+                            <Container>
                                 <Grid centered columns={3} verticalAlign='middle'>
                                     <Grid.Column floated='left' width={6}>
                                         <div>
@@ -166,7 +166,7 @@ export default function Slider() {
                     </SwiperSlide>
                     <SwiperSlide>
                         <div className="slider-two">
-                        <Grid centered columns={3} verticalAlign='middle'>
+                            <Grid centered columns={3} verticalAlign='middle'>
                                 <Grid.Column width={4}>
                                     <div>
                                         <IconReligion />
@@ -185,7 +185,7 @@ export default function Slider() {
                                         <Text className="justify-content" labelPlaceholder="Donador de organos" name="donador" labelName="labelDonador" />
                                     </div>
                                 </Grid.Column>
-                            </Grid>    
+                            </Grid>
                         </div>
                     </SwiperSlide>
                 </Swiper>
