@@ -1,7 +1,6 @@
 import React from "react"
 import { map } from "lodash"
 import { Link } from "gatsby"
-import { ReactComponent as IconBineta } from "../../../images/icons/Biñeta.svg"
 import { ReactComponent as IconIndInfBasic } from "../../../images/icons/IndInfBasica.svg"
 import { ReactComponent as IconIndMedHistorial } from "../../../images/icons/IndMedHistorial.svg"
 import { ReactComponent as IconIndTratamiento } from "../../../images/icons/IndTratamiento.svg"
