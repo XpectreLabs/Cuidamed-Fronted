@@ -51,6 +51,7 @@ export default function Slider() {
                     slidesPerView={1}
                     navigation
                     pagination={{ clickable: true }}
+                    simulateTouch={false}
                     // scrollbar={{ draggable: true }}
                     onSwiper={(swiper) => console.log(swiper)}
                     onSlideChange={() => console.log('slide change')}
@@ -83,7 +84,7 @@ export default function Slider() {
                                 <Grid.Column width={4}>
                                     <div>
                                         <IconFechaNacimiento/>
-                                        <Date className="justify-content"/>
+                                        <Date className="justify-content" labelPlaceholder="Fecha de nacimiento" name="fechaNacimiento" labelName="labelFechaNacimiento"/>
                                         {/* <Text className="justify-content" labelPlaceholder="Fecha de nacimiento" name="fechaNacimiento" labelName="labelFechaNacimiento" /> */}
                                     </div>
                                 </Grid.Column>
@@ -120,8 +121,8 @@ export default function Slider() {
                                 <Grid.Column width={4}>
                                     <div>
                                         <IconGotaSangre />
-                                        {/* <Select  placeholder="Tipo de sangre" labelName="sangre" /> */}
-                                        <Text className="justify-content" labelPlaceholder="Tipo de Sangre" name="tipoSangre" labelName="labelTipoSangre" />
+                                        <Select placeholder="Tipo de sangre" labelName="sangre" />
+                                        {/* <Text className="justify-content" labelPlaceholder="Tipo de Sangre" name="tipoSangre" labelName="labelTipoSangre" /> */}
                                     </div>
                                 </Grid.Column>
                             </Grid>

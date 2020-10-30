@@ -1,58 +1,43 @@
-import React from "react"
-import DayPickerInput from "react-day-picker/DayPickerInput"
-import "react-day-picker/lib/style.css"
+import React, {useState } from "react";
+import DatePicker, { registerLocale } from "react-datepicker";
 
-const MONTHS = [
-  "Enero",
-  "Febrero",
-  "Marzo",
-  "Abril",
-  "Mayo",
-  "Junio",
-  "Julio",
-  "Agosto",
-  "Septiembre",
-  "Octubre",
-  "Noviembre",
-  "Diciembre",
-]
-const WEEKDAYS_LONG = [
-  "Domingo",
-  "Lunes",
-  "Martes",
-  "Miercoles",
-  "Jueves",
-  "Viernes",
-  "Sábado",
-]
-const WEEKDAYS_SHORT = ["Do", "Lu", "Ma", "Mie", "Jue", "Vie", "Sa"]
+import "react-datepicker/dist/react-datepicker.css";
+import es from "date-fns/locale/es"
+registerLocale("es", es);
 
-export default class DateInput extends React.Component {
-  constructor(props) {
-    super(props)
-    this.handleDayChange = this.handleDayChange.bind(this)
-    this.state = {
-      selectedDay: undefined,
+const DateInput = ({name,labelName,labelPlaceholder}) => {
+  const [fecha,setFecha] = useState(null);
+  const handleInputChange = event => {
+    document.getElementById(labelName).classList.add("move-label");
+    setFecha(event)
+    console.log(event);
+    if (event === null) {
+      document.getElementById(labelName).classList.remove("move-label")
     }
   }
 
-  handleDayChange(day) {
-    this.setState({ selectedDay: day })
-  }
-
-  render() {
-    const { selectedDay } = this.state
     return (
       <div className="date-input">
-        <DayPickerInput
-          locale="es"
-          months={MONTHS}
-          weekdaysLong={WEEKDAYS_LONG}
-          weekdaysShort={WEEKDAYS_SHORT}
-          firstDayOfWeek={1}
-          onDayChange={this.handleDayChange}
-        />
+        <label htmlFor={name} id={labelName}>
+         {labelPlaceholder}
+        </label>
+        <DatePicker 
+        selected={fecha} 
+        onChange={handleInputChange} 
+        locale="es" 
+        className="pickers" 
+        dateFormat="dd 'de' MMMM 'de' yyyy"
+        showMonthDropdown
+        showYearDropdown
+        dropdownMode="select"
+        maxDate={(new Date())} 
+        fixedHeight
+        id={name}
+        >
+        </DatePicker>
       </div>
-    )
-  }
+    );
+
 }
+
+export default DateInput;
