@@ -1,34 +1,30 @@
 
 const bloodType = [
-    { key: '1', value: '1', text: 'O negativo' },
-    { key: '2', value: '2', text: 'O positivo' },
-    { key: '3', value: '3', text: 'A negativo' },
-    { key: '4', value: '4', text: 'A positivo' },
-    { key: '5', value: '5', text: 'B negativo' },
-    { key: '6', value: '6', text: 'B positivo' },
-    { key: '7', value: '7', text: 'AB negativo' },
-    { key: '8', value: '8', text: 'AB positivo' },
+    { key: '1', value: '1', text: 'O +' },
+    { key: '2', value: '2', text: 'O +' },
+    { key: '3', value: '3', text: 'A -' },
+    { key: '4', value: '4', text: 'A +' },
+    { key: '5', value: '5', text: 'B -' },
+    { key: '6', value: '6', text: 'B +' },
+    { key: '7', value: '7', text: 'AB -' },
+    { key: '8', value: '8', text: 'AB +' },
 ]
 
 const gradesStudy = [
-    { key: '1', value: '1', text: 'Preescolar' },
-    { key: '2', value: '2', text: 'Primaria' },
-    { key: '3', value: '3', text: 'Secundaria' },
+    { key: '1', value: '7', text: 'Doctorado' },
+    { key: '2', value: '6', text: 'Maestria' },
+    { key: '3', value: '5', text: 'Licenciatura' },
     { key: '4', value: '4', text: 'Bachillerato' },
-    { key: '5', value: '5', text: 'Licenciatura' },
-    { key: '6', value: '6', text: 'Maestria' },
-    { key: '7', value: '7', text: 'Doctorado' },
-    { key: '8', value: '8', text: 'PostDoctorado' },
+    { key: '5', value: '3', text: 'Secundaria' },
+    { key: '6', value: '2', text: 'Primaria' },
+    { key: '7', value: '1', text: 'Preescolar' },
 ]
 
 const religion = [
-    { key: '1', value: '1', text: 'Maya' },
-    { key: '2', value: '2', text: 'Mexica' },
-    { key: '3', value: '3', text: 'Purépecha' },
-    { key: '4', value: '4', text: 'Catolicismo' },
-    { key: '5', value: '5', text: 'Ortodoxismo' },
-    { key: '6', value: '6', text: 'Evangélico' },
-    { key: '7', value: '7', text: 'Cristianismo' },
+    { key: '1', value: '1', text: 'Catolicismo' },
+    { key: '2', value: '2', text: 'Evangélico' },
+    { key: '3', value: '3', text: 'Cristianismo' },
+    { key: '3', value: '3', text: 'Testigos de Jehová' },
 ]
 
 const maritalStatus = [
@@ -39,7 +35,7 @@ const maritalStatus = [
 const ifNot = [
     { key: '1', value: '1', text: 'Sí' },
     { key: '2', value: '2', text: 'No' },
-    { key: '2', value: '2', text: 'Todavía no sé' },
+    { key: '3', value: '3', text: 'Todavía no sé' },
 ]
 
 export {

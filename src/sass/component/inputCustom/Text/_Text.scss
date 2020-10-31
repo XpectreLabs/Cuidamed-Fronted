@@ -1,6 +1,5 @@
 .input-custom {
   position: relative;
-  margin: auto auto;
   width: 100%;
 
   > .move-label {
@@ -11,13 +10,25 @@
       background-color: $white !important;
     }
   }
+  
+  > .input {
+    >input {
+      width: 100%;
+      font-size: 1.5em;
+  
+      border-radius: 1.5em;
+      text-align: center;
+  
+    }
 
-  > .input input {
-    width: 100%;
-    font-size: 1.5em;
+    input[type=number]::-webkit-inner-spin-button {
+      opacity: 1;
+      width: 37px;
+      height: 37px;
+    }
 
-    border-radius: 1.5em;
-    text-align: center;
+    /* for mozilla */  
+   input[type=number] {-moz-appearance: textfield;}
   }
 
   >.labelText {
