@@ -67,6 +67,8 @@ export default function Slider() {
                     // onSwiper={(swiper) => console.log(swiper)}
                     // onSlideChange={() => console.log('slide change')}
                     className="slider-content"
+                    simulateTouch={false}
+
                 >
                     <SwiperSlide>
                         <Container verticalAlign='middle'>
@@ -123,16 +125,21 @@ export default function Slider() {
                                 <Grid.Column width={4}>
                                     <div>
                                         <IconMundo />
-                                        <PlacesComplete />
+                                        <PlacesComplete
+                                            labelName="labelLugarNacimiento"
+                                            inputName="inputLugarNacimiento"
+                                            labelPlaceholder="Lugar de nacimiento"
+                                        />
                                     </div>
                                 </Grid.Column>
                                 <Grid.Column width={4}>
                                     <div>
                                         <IconMapa />
-                                        <Text className="justify-content"
+                                        <PlacesComplete
+                                            labelName="labelLugarResidencia"
+                                            inputName="inputLugarResidencia"
                                             labelPlaceholder="Lugar de residencia"
-                                            name="paisNacimiento"
-                                            labelName="labelPaisNacimiento" />
+                                        />
                                     </div>
                                 </Grid.Column>
                             </Grid>
@@ -147,7 +154,7 @@ export default function Slider() {
                                         <Text
                                             className="justify-content"
                                             labelPlaceholder="Altura (cm)"
-                                            type="number" name="altura"
+                                            type="number" inputName="altura"
                                             labelName="labelAltura" />
                                     </div>
                                 </Grid.Column>
@@ -156,7 +163,7 @@ export default function Slider() {
                                         <IconPeso />
                                         <Text className="justify-content"
                                             labelPlaceholder="Peso (kg)"
-                                            type="number" name="peso"
+                                            type="number" inputName="peso"
                                             labelName="labelPeso" />
                                     </div>
                                 </Grid.Column>
@@ -189,7 +196,7 @@ export default function Slider() {
                                         <IconSeguro />
                                         <Text className="justify-content"
                                             labelPlaceholder="Seguro médico"
-                                            name="seguro"
+                                            inputName="seguro"
                                             labelName="labelSeguro" />
                                     </div>
                                 </Grid.Column>
@@ -198,7 +205,7 @@ export default function Slider() {
                                         <IconOcupacion />
                                         <Text className="justify-content"
                                             labelPlaceholder="Ocupación"
-                                            name="ocupacion"
+                                            inputName="ocupacion"
                                             labelName="labelOcupacion" />
                                     </div>
                                 </Grid.Column>
@@ -238,6 +245,18 @@ export default function Slider() {
                                             name='inputDonadorOrganos' />
                                     </div>
                                 </Grid.Column>
+                            </Grid>
+                        </div>
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <div className="slider-two">
+                            <Grid centered columns={16}>
+                                <Grid.Column width={16}>
+                                    <Grid.Row>
+                                        <h3>¿Te has vacunado en estos ultimos 6 meses?</h3>
+                                    </Grid.Row>
+                                </Grid.Column>
+
                             </Grid>
                         </div>
                     </SwiperSlide>

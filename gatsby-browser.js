@@ -8,8 +8,8 @@
 import "semantic-ui-css/semantic.min.css"
 import "./src/sass/index.scss"
 
-const addScript = url => {
-    const script = document.createElement("script")
+const addScript = async url => {
+    const script = await document.createElement("script")
     script.src = url
     script.async = true
     document.body.appendChild(script)
