@@ -1,0 +1,53 @@
+.input-container {
+  width: 100%;
+  position: relative;
+
+  & > input {
+    height: 3.1em;
+    outline: none;
+    border: 1px solid #707070;
+  }
+
+  & > input::placeholder,
+  & > input::-webkit-input-placeholder {
+    color: $text-secondary;
+  }
+  & > input + label {
+    font-size: 16px;
+    display: block;
+    pointer-events: none;
+    position: absolute;
+    top: 10px;
+    width: 100%;
+    left: 10px;
+    color: transparent;
+  }
+  & > label::before {
+    content: attr(placeholder);
+    position: absolute;
+    top: 0;
+    opacity: 0;
+    transition: all 0.3s ease;
+    left: 31px;
+    color: $color-dark-light;
+    font-size: 30px;
+    background-color: white;
+  }
+
+  & > input:not(:placeholder-shown) + label::before {
+    top: -30px;
+    opacity: 1;
+  }
+
+  &.newDesign {
+    & > label::before {
+      font-size: 20px;
+      color: white;
+      background-color: transparent;
+    }
+
+    & > input:not(:placeholder-shown) + label::before {
+      top: -40px;
+    }
+  }
+}

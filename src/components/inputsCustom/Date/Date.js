@@ -27,32 +27,23 @@ const WEEKDAYS_LONG = [
 ]
 const WEEKDAYS_SHORT = ["Do", "Lu", "Ma", "Mie", "Jue", "Vie", "Sa"]
 
-export default class DateInput extends React.Component {
-  constructor(props) {
-    super(props)
-    this.handleDayChange = this.handleDayChange.bind(this)
-    this.state = {
-      selectedDay: undefined,
-    }
+const DateInput = ({ handleDay }) => {
+  const handleDayChange = day => {
+    handleDay(day)
   }
 
-  handleDayChange(day) {
-    this.setState({ selectedDay: day })
-  }
-
-  render() {
-    const { selectedDay } = this.state
-    return (
-      <div className="date-input">
-        <DayPickerInput
-          locale="es"
-          months={MONTHS}
-          weekdaysLong={WEEKDAYS_LONG}
-          weekdaysShort={WEEKDAYS_SHORT}
-          firstDayOfWeek={1}
-          onDayChange={this.handleDayChange}
-        />
-      </div>
-    )
-  }
+  //const { selectedDay } = this.state
+  return (
+    <div className="date-input">
+      <DayPickerInput
+        locale="es"
+        months={MONTHS}
+        weekdaysLong={WEEKDAYS_LONG}
+        weekdaysShort={WEEKDAYS_SHORT}
+        firstDayOfWeek={1}
+        onDayChange={handleDayChange}
+      />
+    </div>
+  )
 }
+export default DateInput

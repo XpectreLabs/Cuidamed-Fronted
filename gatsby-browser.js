@@ -9,14 +9,17 @@ import "semantic-ui-css/semantic.min.css"
 import "./src/sass/index.scss"
 
 const addScript = async url => {
-    const script = await document.createElement("script")
-    script.src = url
-    script.async = true
-    document.body.appendChild(script)
+  const script = await document.createElement("script")
+  script.src = url
+  script.async = true
+  document.body.appendChild(script)
 }
 
 export const onClientEntry = () => {
-    window.onload = () => {
-        addScript("https://maps.googleapis.com/maps/api/js?key=AIzaSyADghsRkchKPf-YpWCSXH1syuZia4Hjhtc&libraries=places")
-    }
+  window.onload = () => {
+    console.log("cargado")
+    addScript(
+      "https://maps.googleapis.com/maps/api/js?key=AIzaSyADghsRkchKPf-YpWCSXH1syuZia4Hjhtc&libraries=places"
+    )
+  }
 }

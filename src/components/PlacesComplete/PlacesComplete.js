@@ -1,57 +1,69 @@
-import React from 'react'
+import React from "react"
 import PlacesAutocomplete, {
-    geocodeByAddress,
-    getLatLng,
-} from 'react-places-autocomplete'
+  geocodeByAddress,
+  getLatLng,
+} from "react-places-autocomplete"
 
-import Text from '../inputsCustom/Text'
+import Text from "../inputsCustom/Text"
 
-export default function PlacesComplete(props) {
-
-    const { labelPlaceholder, inputName, labelName } = props;
-    console.log(props);
-    const [address, setAddress] = React.useState("");
+const PlacesComplete = React.memo(
+  ({ labelPlaceholder, inputName, labelName, setValue }) => {
+    const [address, setAddress] = React.useState("")
     const [coordinates, setCoordinates] = React.useState({
-        lat: null,
-        lng: null
-    });
+      lat: null,
+      lng: null,
+    })
 
     const handleSelect = async value => {
-        const results = await geocodeByAddress(value);
-        const latLng = await getLatLng(results[0]);
+      const results = await geocodeByAddress(value)
+      const latLng = await getLatLng(results[0])
 
-        setAddress(value);
-        setCoordinates(latLng);
+      setAddress(value)
+      setCoordinates(latLng)
+      setValue(value)
     }
 
     return (
-        <div>
-            <PlacesAutocomplete
-                value={address}
-                onChange={setAddress}
-                onSelect={handleSelect}
-            >
-                {({ getInputProps,
-                    suggestions,
-                    getSuggestionItemProps,
-                    loading }) => (
-                        <div>
-                            {/* <p>Latitude: {coordinates.lat}</p>
+      <div>
+        <PlacesAutocomplete
+          value={address}
+          onChange={setAddress}
+          onSelect={handleSelect}
+        >
+          {({
+            getInputProps,
+            suggestions,
+            getSuggestionItemProps,
+            loading,
+          }) => (
+            <div>
+              {/* <p>Latitude: {coordinates.lat}</p>
                             <p>Longitude: {coordinates.lng}</p> */}
-                            <Text labelPlaceholder={labelPlaceholder} name={inputName} labelName={labelName} functionPlaces={{ ...getInputProps({}) }} />
-                            <div className="places-complete" >
-                                {loading ? <div>...loading</div> : null}
+              <Text
+                labelPlaceholder={labelPlaceholder}
+                name={inputName}
+                labelName={labelName}
+                functionPlaces={{ ...getInputProps({}) }}
+              />
+              <div className="places-complete">
+                {loading ? <div>...loading</div> : null}
 
-                                {suggestions.map(suggestion => {
-                                    const style = suggestion.active
-                                        ? { backgroundColor: '#2c2e81', cursor: 'pointer' }
-                                        : { backgroundColor: '#ffffff', cursor: 'pointer' };
-                                    return <div key={suggestion.placeId}
-                                        {...getSuggestionItemProps(suggestion, { style })}>{suggestion.description}</div>
-                                })}
-                            </div>
+                {suggestions.map(suggestion => {
+                  const style = suggestion.active
+                    ? { backgroundColor: "#2c2e81", cursor: "pointer" }
+                    : { backgroundColor: "#ffffff", cursor: "pointer" }
+                  return (
+                    <div
+                      key={suggestion.placeId}
+                      {...getSuggestionItemProps(suggestion, { style })}
+                    >
+                      {suggestion.description}
+                    </div>
+                  )
+                })}
+              </div>
 
-                            {/* <div className="container-place-autocomplete">
+              {/* <div className="container-place-autocomplete">
                                 <div className="labelText" id={labelName} >
                                     <label htmlFor={inputName} className="ui label" >
                                         {labelPlaceholder}
@@ -78,9 +90,11 @@ export default function PlacesComplete(props) {
                                     })}
                                 </datalist>
                             </div> */}
-                        </div>
-                    )}
-            </PlacesAutocomplete>
-        </div>
+            </div>
+          )}
+        </PlacesAutocomplete>
+      </div>
     )
-}
+  }
+)
+export default PlacesComplete
