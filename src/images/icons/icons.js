@@ -13,6 +13,8 @@ import { ReactComponent as IconEstadoCivil } from "./estadoCivil.svg"
 import { ReactComponent as IconReligion } from "./religion.svg"
 import { ReactComponent as IconSeguro } from "./seguro.svg"
 
+import { ReactComponent as IconVacuna } from "./vacunas.svg"
+
 export {
   IconMen,
   IconWomen,
@@ -27,5 +29,6 @@ export {
   IconDonador,
   IconEstadoCivil,
   IconReligion,
-  IconSeguro
+  IconSeguro,
+  IconVacuna
 }

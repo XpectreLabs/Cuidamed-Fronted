@@ -71,9 +71,50 @@
                 margin-top: 1.5em;
             }
         }
-
     }
     
-        
+    .vacunas {
+
+        &__title{
+            text-align: center;
+            margin-top: 6em;
+        }
+
+        &__center {
+            display: flex;
+            justify-content: center;
+
+
+
+            .optionYesOrNot {
+                font-size: 25px;
+                display: inline-block;
+                width: 10%;
+                >input[type="radio"] {
+                    -ms-transform: scale(1.5); /* IE 9 */
+                    -webkit-transform: scale(1.5); /* Chrome, Safari, Opera */
+                    transform: scale(1.5);
+                    margin-right: 0.5em;
+                    cursor: pointer;
+                }
+                >label {
+                    cursor: pointer;
+                }
+
+                &:last-of-type {
+                    text-align: end;
+                }
+
+            }
+        }
+
+        &__title-description {
+            text-align: center;
+            margin-top: 2em;
+        }
+
+ 
+    }
+            
     
 }

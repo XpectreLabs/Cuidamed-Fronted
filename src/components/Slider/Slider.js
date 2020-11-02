@@ -17,6 +17,7 @@ import {
     IconEstadoCivil,
     IconReligion,
     IconSeguro,
+    IconVacuna,
 } from "../../images/icons/icons"
 
 import {
@@ -247,11 +248,45 @@ export default function Slider() {
                         </div>
                     </SwiperSlide>
                     <SwiperSlide>
-                        <div className="slider-two">
+                        <div className="vacunas">
                             <Grid centered columns={16}>
-                                <Grid.Column width={16}>
-                                    <Grid.Row>
+                                <Grid.Column width={16} >
+                                    <Grid.Row className="vacunas__title">
                                         <h3>¿Te has vacunado en estos ultimos 6 meses?</h3>
+                                    </Grid.Row>
+                                    <Grid.Row className="vacunas__center">
+                                        <IconVacuna />
+                                    </Grid.Row>
+                                    <Grid.Row className="vacunas__center" >
+                                        <div className="optionYesOrNot">
+                                            <input
+                                                id="vacunaYes"
+                                                type="radio"
+                                                name="vacuna"
+                                                readOnly=""
+                                                tabIndex="0" />
+                                            <label
+                                                htmlFor="vacunaYes">
+                                                Sí
+                                            </label>
+                                        </div>
+                                        <div className="optionYesOrNot">
+                                            <input id="vacunaNo"
+                                                type="radio"
+                                                name="vacuna"
+                                                readOnly=""
+                                                tabIndex="0" />
+                                            <label
+                                                htmlFor="vacunaNo">
+                                                No</label>
+                                        </div>
+
+                                    </Grid.Row>
+                                    <Grid.Row className="vacunas__title-description">
+                                        <h3>En caso de ser "Sí" llenar lo siguiente (una por casilla)</h3>
+                                    </Grid.Row>
+                                    <Grid.Row className="vacunas__center">
+                                        <Text labelPlaceholder="¿Cúal fue?" labelName="labelVacuna" name="inputVacuna" />
                                     </Grid.Row>
                                 </Grid.Column>
 
