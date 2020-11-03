@@ -1,6 +1,6 @@
 
 const bloodType = [
-    { key: '1', value: '1', text: 'O +' },
+    { key: '1', value: '1', text: 'O -' },
     { key: '2', value: '2', text: 'O +' },
     { key: '3', value: '3', text: 'A -' },
     { key: '4', value: '4', text: 'A +' },
