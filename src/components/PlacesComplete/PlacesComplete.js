@@ -5,9 +5,11 @@ import PlacesAutocomplete, {
 } from "react-places-autocomplete"
 
 import Text from "../inputsCustom/Text"
+import { CustomInput } from "../inputsCustom/CustomInput"
+import InputCustom from "../inputsCustom/Text"
 
 const PlacesComplete = React.memo(
-  ({ labelPlaceholder, inputName, labelName, setValue }) => {
+  ({ labelPlaceholder, setValue }) => {
     const [address, setAddress] = React.useState("")
     const [coordinates, setCoordinates] = React.useState({
       lat: null,
@@ -36,34 +38,33 @@ const PlacesComplete = React.memo(
             getSuggestionItemProps,
             loading,
           }) => (
-            <div>
-              {/* <p>Latitude: {coordinates.lat}</p>
+              <div>
+                {/* <p>Latitude: {coordinates.lat}</p>
                             <p>Longitude: {coordinates.lng}</p> */}
-              <Text
-                labelPlaceholder={labelPlaceholder}
-                name={inputName}
-                labelName={labelName}
-                functionPlaces={{ ...getInputProps({}) }}
-              />
-              <div className="places-complete">
-                {loading ? <div>...loading</div> : null}
+                <CustomInput
+                  placeholder={labelPlaceholder}
+                  areYouInLogin={true}
+                  functionPlaces={{ ...getInputProps({}) }}
+                />
+                <div className="places-complete">
+                  {loading ? <div>...loading</div> : null}
 
-                {suggestions.map(suggestion => {
-                  const style = suggestion.active
-                    ? { backgroundColor: "#2c2e81", cursor: "pointer" }
-                    : { backgroundColor: "#ffffff", cursor: "pointer" }
-                  return (
-                    <div
-                      key={suggestion.placeId}
-                      {...getSuggestionItemProps(suggestion, { style })}
-                    >
-                      {suggestion.description}
-                    </div>
-                  )
-                })}
-              </div>
+                  {suggestions.map(suggestion => {
+                    const style = suggestion.active
+                      ? { backgroundColor: "#2c2e81", cursor: "pointer" }
+                      : { backgroundColor: "#ffffff", cursor: "pointer" }
+                    return (
+                      <div
+                        key={suggestion.placeId}
+                        {...getSuggestionItemProps(suggestion, { style })}
+                      >
+                        {suggestion.description}
+                      </div>
+                    )
+                  })}
+                </div>
 
-              {/* <div className="container-place-autocomplete">
+                {/* <div className="container-place-autocomplete">
                                 <div className="labelText" id={labelName} >
                                     <label htmlFor={inputName} className="ui label" >
                                         {labelPlaceholder}
@@ -90,8 +91,8 @@ const PlacesComplete = React.memo(
                                     })}
                                 </datalist>
                             </div> */}
-            </div>
-          )}
+              </div>
+            )}
         </PlacesAutocomplete>
       </div>
     )

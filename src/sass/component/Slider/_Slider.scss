@@ -2,10 +2,18 @@
 
 .slider {
     height: 100vh;
+    max-height: 100vh;
 
     .title {
         position: absolute;
         top: 1em;
+    }
+
+    .swiper-slide{
+        max-height: 100vh;
+        >.ui.grid>.row{
+            padding-top: 0;
+        }
     }
 
     .swiper-container {
@@ -52,10 +60,6 @@
                 }
         
             .column {
-                div {
-                    // text-align: center;
-                }
-        
                 .input-custom {
                     margin: 0 auto;
                 }
@@ -71,9 +75,112 @@
                 margin-top: 1.5em;
             }
         }
-
     }
     
-        
+    .vacunas {
+
+        &__title{
+            text-align: center;
+            margin-top: 6em;
+        }
+
+        &__center {
+            display: flex;
+            justify-content: center;
+
+
+
+            .optionYesOrNot {
+                font-size: 25px;
+                display: flex;
+                width: 50%;
+                justify-content: center;
+                >input[type="radio"] {
+                    -ms-transform: scale(1.5); /* IE 9 */
+                    -webkit-transform: scale(1.5); /* Chrome, Safari, Opera */
+                    transform: scale(1.5);
+                    cursor: pointer;
+                    width: 30px;
+                }
+                >label {
+                    cursor: pointer;
+                }
+
+                &:last-of-type {
+                    text-align: end;
+                }
+
+            }
+        }
+
+        &__title-description {
+            text-align: center;
+            margin-top: 2em;
+        }
+
+ 
+    }
+
+    .info-basic {
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        overflow-y: scroll;
+        overflow-x: hidden;
+
+        .description {
+            display: flex;
+            margin-bottom: 2em;
+
+            &:first-of-type {
+                margin-top: 8em;
+            }
+            
+            & > .description-container{
+
+                &:first-of-type{
+                    width: 60%;
+                }
+                &:last-of-type {
+                    width: max-content;
+                }
+                display: flex;
+
+                > .icon {
+                    margin-right: 10px;
+                    > svg {
+                        width: 6em;
+                    }
+                }
+                > .data {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+
+                    > span {
+                        font-size: 1.2em;
+                        margin-top: 0.5em;
+                    }
+
+                    > label {
+                        font-weight: bold;
+                        font-size: 1.2em;
+                    }
+                }
+            }
+
+        }
+
+        .row{
+            
+            >.button-info-basic{
+                width: 30%;
+                margin-bottom: 3em;
+            }
+        }
+    }
+            
     
 }

@@ -1,7 +1,6 @@
 import React, { useState } from "react"
 import { Label, Button } from "semantic-ui-react"
 import { Header } from "../Header"
-import Text from "../inputsCustom/Text"
 import { CustomInput } from "../inputsCustom/CustomInput"
 import ModalComponent from "../ModalComponent"
 

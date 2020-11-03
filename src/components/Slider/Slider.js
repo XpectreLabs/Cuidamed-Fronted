@@ -1,29 +1,31 @@
 import React, { useState, useEffect } from "react"
-import { Grid, Container } from "semantic-ui-react"
-
+import Moment from 'react-moment';
+import { Grid, Container, Icon, Button } from "semantic-ui-react"
 //icons
 import {
-  IconMen,
-  IconWomen,
-  IconFechaNacimiento,
-  IconMapa,
-  IconMundo,
-  IconAltura,
-  IconPeso,
-  IconGotaSangre,
-  IconOcupacion,
-  IconGradoEstudio,
-  IconDonador,
-  IconEstadoCivil,
-  IconReligion,
-  IconSeguro,
+    IconMen,
+    IconWomen,
+    IconFechaNacimiento,
+    IconMapa,
+    IconMundo,
+    IconAltura,
+    IconPeso,
+    IconGotaSangre,
+    IconOcupacion,
+    IconGradoEstudio,
+    IconDonador,
+    IconEstadoCivil,
+    IconReligion,
+    IconSeguro,
+    IconVacuna,
 } from "../../images/icons/icons"
 
 import { bloodType, gradesStudy, religion, maritalStatus, ifNot } from "./data"
 
 import Text from "../inputsCustom/Text"
 import Date from "../inputsCustom/Date"
-import Select from "../inputsCustom/Select"
+import { SelectCustom } from "../inputsCustom/Select/Select"
+import { CustomInput } from "../inputsCustom/CustomInput"
 
 //Placess
 import PlacesComplete from "../PlacesComplete"
@@ -44,294 +46,470 @@ import "swiper/components/scrollbar/scrollbar.scss"
 SwiperCore.use([Navigation, Pagination, Scrollbar, A11y])
 
 export default function Slider() {
-  const [isValidIndex, setIsValidIndex] = useState(false)
-  const [activeIndex, setActiveIndex] = useState(0)
-  const [formValues, setFormValues] = useState({
-    sex: "",
-    birthDate: "",
-    placeBirth: "",
-    placeLived: "",
-    height: "",
-    weight: "",
-    typeBlood: "",
-  })
-  console.log(formValues)
-  const {
-    sex,
-    birthDate,
-    placeBirth,
-    placeLived,
-    height,
-    weight,
-    typeBlood,
-  } = formValues
-  useEffect(() => {
-    switch (activeIndex) {
-      case 0:
-        if (sex != "" && sex != undefined) setIsValidIndex(true)
-        else setIsValidIndex(false)
-        break
-      case 1:
-        if (birthDate !== "" && placeBirth !== "" && placeLived !== "")
-          setIsValidIndex(true)
-        else setIsValidIndex(false)
-        break
-      case 2:
-        if (height !== "" && weight !== "" && typeBlood !== "")
-          setIsValidIndex(true)
-        else setIsValidIndex(false)
-        break
-      default:
-        break
-    }
-  }, [activeIndex, formValues])
-  return (
-    <Grid centered className="slider">
-      <h1 className="title">Información Básica</h1>
-      {/* <Grid.Row className="title">
+    const [isValidIndex, setIsValidIndex] = useState(false)
+    const [activeIndex, setActiveIndex] = useState(0)
+    const [selectSex, setSelectSex] = useState(<IconMen />);
+    const [formValues, setFormValues] = useState({
+        sex: "",
+        birthDate: "",
+        placeBirth: "",
+        placeLived: "",
+        height: "",
+        weight: "",
+        typeBlood: "",
+        studyGrade: "",
+        healthInsurance: "",
+        employment: "",
+        religionSelected: "",
+        stateMarital: "",
+        organDonor: "",
+        vacunado: "",
+
+    })
+
+    const {
+        sex,
+        birthDate,
+        placeBirth,
+        placeLived,
+        height,
+        weight,
+        typeBlood,
+        studyGrade,
+        healthInsurance,
+        employment,
+        religionSelected,
+        stateMarital,
+        organDonor,
+        vacunado,
+    } = formValues
+    const infoBasicDescriptionIcons = [
+        {
+            iconFirst: <IconFechaNacimiento />,
+            dataFirst: <Moment date={birthDate} />,
+            labelFirst: "Fecha de nacimiento",
+            iconSecond: <IconMundo />,
+            dataSecond: placeBirth,
+            labelSecond: "Lugar de nacimiento"
+
+        },
+        {
+            iconFirst: <IconMapa />,
+            dataFirst: placeLived,
+            labelFirst: "Lugar de residencia",
+            iconSecond: <IconAltura />,
+            dataSecond: height,
+            labelSecond: "Altura (cm)"
+        },
+        {
+            iconFirst: <IconPeso />,
+            dataFirst: weight,
+            labelFirst: "Peso (kg)",
+            iconSecond: <IconGotaSangre />,
+            dataSecond: typeBlood,
+            labelSecond: "Tipo de sangre"
+        },
+        ,
+        {
+            iconFirst: <IconOcupacion />,
+            dataFirst: employment,
+            labelFirst: "Ocupación",
+            iconSecond: <IconGradoEstudio />,
+            dataSecond: studyGrade,
+            labelSecond: "Grado de estudios"
+        },
+        ,
+        {
+            iconFirst: <IconDonador />,
+            dataFirst: organDonor,
+            labelFirst: "Donador de organos",
+            iconSecond: <IconEstadoCivil />,
+            dataSecond: stateMarital,
+            labelSecond: "Estado civil"
+        },
+        {
+            iconFirst: <IconReligion />,
+            dataFirst: religionSelected,
+            labelFirst: "Religión",
+            iconSecond: <IconSeguro />,
+            dataSecond: healthInsurance,
+            labelSecond: "Seguro Medico"
+        },
+        {
+            iconFirst: <IconVacuna />,
+            dataSecond: vacunado,
+            labelFirst: "Vacunas los últimos 6 meses",
+            iconSecond: selectSex,
+            dataSecond: sex,
+            labelSecond: "Sexo"
+
+        }
+        // ,
+        // ,
+        // IconVacuna,
+    ]
+
+    useEffect(() => {
+        switch (activeIndex) {
+            case 0:
+                if (sex != "" && sex != undefined) {
+                    setIsValidIndex(true)
+                    if (sex === "F") {
+                        setSelectSex(<IconWomen />)
+                    }
+                }
+                else setIsValidIndex(false)
+                break
+            case 1:
+                if (birthDate !== "" && placeBirth !== "" && placeLived !== "")
+                    setIsValidIndex(true)
+                else setIsValidIndex(false)
+                break
+            case 2:
+                if (height !== "" && weight !== "" && typeBlood !== "")
+                    setIsValidIndex(true)
+                else setIsValidIndex(false)
+                break
+            case 3:
+                if (studyGrade !== "" && healthInsurance !== "" && employment !== "")
+                    setIsValidIndex(true)
+                else setIsValidIndex(false)
+                break
+            case 4:
+                if (religionSelected !== "" && stateMarital !== "" && organDonor !== "")
+                    setIsValidIndex(true)
+                else setIsValidIndex(false)
+                break
+            default:
+                break
+        }
+    }, [activeIndex, formValues])
+    return (
+        <Grid centered className="slider">
+            <h1 className="title">Información Básica</h1>
+            {/* <Grid.Row className="title">
             </Grid.Row > */}
 
-      <Grid.Row>
-        <Swiper
-          spaceBetween={50}
-          slidesPerView={1}
-          navigation
-          allowSlideNext={isValidIndex}
-          allowSlidePrev={isValidIndex}
-          pagination={{ clickable: false }}
-          // scrollbar={{ draggable: true }}
-          onSwiper={swiper => console.log(swiper)}
-          onSlideChange={e => setActiveIndex(e.activeIndex)}
-          className="slider-content"
-          simulateTouch={false}
-        >
-          <SwiperSlide>
-            <Container verticalAlign="middle">
-              {/* <Grid.Row>
+            <Grid.Row>
+                <Swiper
+                    spaceBetween={50}
+                    slidesPerView={1}
+                    navigation
+                    allowSlideNext={isValidIndex}
+                    allowSlidePrev={isValidIndex}
+                    pagination={{ clickable: false }}
+                    // scrollbar={{ draggable: true }}
+                    onSwiper={swiper => console.log(swiper)}
+                    onSlideChange={e => setActiveIndex(e.activeIndex)}
+                    className="slider-content"
+                    simulateTouch={false}
+                >
+                    <SwiperSlide>
+                        <Container verticalAlign="middle" >
+                            {/* <Grid.Row>
                                 <h2>Sexo</h2>
                             </Grid.Row> */}
-              <Grid verticalAlign="middle">
-                <Grid.Row className="inputs-sex" verticalAlign="middle">
-                  <Grid.Column floated="left" width={6}>
-                    <input
-                      id="iconMen"
-                      type="radio"
-                      name="gender"
-                      className="hidden"
-                      readOnly=""
-                      tabIndex="0"
-                    />
-                    <label
-                      htmlFor="iconMen"
-                      style={{ cursor: "pointer" }}
-                      onClick={() => setFormValues({ ...formValues, sex: "M" })}
-                    >
-                      <IconMen />
-                      <br />
-                      <span>Hombre</span>
-                    </label>
-                  </Grid.Column>
-                  <Grid.Column floated="right" width={6}>
-                    <input
-                      id="iconWomen"
-                      type="radio"
-                      name="gender"
-                      className="hidden"
-                      readOnly=""
-                      tabIndex="0"
-                    />
-                    <label
-                      htmlFor="iconWomen"
-                      style={{ cursor: "pointer" }}
-                      onClick={() => setFormValues({ ...formValues, sex: "F" })}
-                    >
-                      <IconWomen />
-                      <br />
-                      <span>Mujer</span>
-                    </label>
-                  </Grid.Column>
-                </Grid.Row>
-              </Grid>
-            </Container>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="slider-two">
-              <Grid centered columns={3} verticalAlign="middle">
-                <Grid.Column width={4}>
-                  <div>
-                    <IconFechaNacimiento />
-                    <Date
-                      className="justify-content"
-                      handleDay={e =>
-                        setFormValues({ ...formValues, birthDate: e })
-                      }
-                    />
-                  </div>
-                </Grid.Column>
-                <Grid.Column width={4}>
-                  <div>
-                    <IconMundo />
-                    <PlacesComplete
-                      labelName="labelLugarNacimiento"
-                      inputName="inputLugarNacimiento"
-                      labelPlaceholder="Lugar de nacimiento"
-                      setValue={e =>
-                        setFormValues({ ...formValues, placeBirth: e })
-                      }
-                    />
-                  </div>
-                </Grid.Column>
-                <Grid.Column width={4}>
-                  <div>
-                    <IconMapa />
-                    <PlacesComplete
-                      labelName="labelLugarResidencia"
-                      inputName="inputLugarResidencia"
-                      labelPlaceholder="Lugar de residencia"
-                      setValue={e =>
-                        setFormValues({ ...formValues, placeLived: e })
-                      }
-                    />
-                  </div>
-                </Grid.Column>
-              </Grid>
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="slider-two">
-              <Grid centered columns={3} verticalAlign="middle">
-                <Grid.Column width={4}>
-                  <div>
-                    <IconAltura />
-                    <Text
-                      className="justify-content"
-                      labelPlaceholder="Altura (cm)"
-                      type="number"
-                      name="altura"
-                      labelName="labelAltura"
-                    />
-                  </div>
-                </Grid.Column>
-                <Grid.Column width={4}>
-                  <div>
-                    <IconPeso />
-                    <Text
-                      className="justify-content"
-                      labelPlaceholder="Peso (kg)"
-                      type="number"
-                      name="peso"
-                      labelName="labelPeso"
-                    />
-                  </div>
-                </Grid.Column>
-                <Grid.Column width={4}>
-                  <div>
-                    <IconGotaSangre />
-                    <Select
-                      placeholder="Tipo de sangre"
-                      labelName="sangre"
-                      dataOptions={bloodType}
-                      name="tipoSangre"
-                      setValue={e =>
-                        setFormValues({ ...formValues, typeBlood: e })
-                      }
-                    />
-                  </div>
-                </Grid.Column>
-              </Grid>
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="slider-two">
-              <Grid centered columns={3} verticalAlign="middle">
-                <Grid.Column width={4}>
-                  <div>
-                    <IconGradoEstudio />
-                    <Select
-                      placeholder="Grado de estudios"
-                      labelName="grado"
-                      dataOptions={gradesStudy}
-                      name="gradoEstudio"
-                    />
-                  </div>
-                </Grid.Column>
-                <Grid.Column width={4}>
-                  <div>
-                    <IconSeguro />
-                    <Text
-                      className="justify-content"
-                      labelPlaceholder="Seguro médico"
-                      inputName="seguro"
-                      labelName="labelSeguro"
-                    />
-                  </div>
-                </Grid.Column>
-                <Grid.Column width={4}>
-                  <div>
-                    <IconOcupacion />
-                    <Text
-                      className="justify-content"
-                      labelPlaceholder="Ocupación"
-                      inputName="ocupacion"
-                      labelName="labelOcupacion"
-                    />
-                  </div>
-                </Grid.Column>
-              </Grid>
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="slider-two">
-              <Grid centered columns={3} verticalAlign="middle">
-                <Grid.Column width={4}>
-                  <div>
-                    <IconReligion />
-                    <Select
-                      placeholder="Religión"
-                      labelName="labelReligion"
-                      dataOptions={religion}
-                      name="inputReligion"
-                    />
-                  </div>
-                </Grid.Column>
-                <Grid.Column width={4}>
-                  <div>
-                    <IconEstadoCivil />
-                    <Select
-                      placeholder="Estado civil"
-                      labelName="labelEstadoCivil"
-                      dataOptions={maritalStatus}
-                      name="inputEstadoCivil"
-                    />
-                  </div>
-                </Grid.Column>
-                <Grid.Column width={4}>
-                  <div>
-                    <IconDonador />
-                    <Select
-                      placeholder="Donador de organos"
-                      labelName="labelDonadorOrganos"
-                      dataOptions={ifNot}
-                      name="inputDonadorOrganos"
-                    />
-                  </div>
-                </Grid.Column>
-              </Grid>
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="slider-two">
-              <Grid centered columns={16}>
-                <Grid.Column width={16}>
-                  <Grid.Row>
-                    <h3>¿Te has vacunado en estos ultimos 6 meses?</h3>
-                  </Grid.Row>
-                </Grid.Column>
-              </Grid>
-            </div>
-          </SwiperSlide>
-        </Swiper>
-      </Grid.Row>
-    </Grid>
-  )
+                            <Grid verticalAlign="middle">
+                                <Grid.Row className="inputs-sex" verticalAlign="middle">
+                                    <Grid.Column floated="left" width={6}>
+                                        <input
+                                            id="iconMen"
+                                            type="radio"
+                                            name="gender"
+                                            className="hidden"
+                                            readOnly=""
+                                            tabIndex="0"
+                                        />
+                                        <label
+                                            htmlFor="iconMen"
+                                            style={{ cursor: "pointer" }}
+                                            onClick={() => setFormValues({ ...formValues, sex: "M" })}
+                                        >
+                                            <IconMen />
+                                            <br />
+                                            <span>Hombre</span>
+                                        </label>
+                                    </Grid.Column>
+                                    <Grid.Column floated="right" width={6}>
+                                        <input
+                                            id="iconWomen"
+                                            type="radio"
+                                            name="gender"
+                                            className="hidden"
+                                            readOnly=""
+                                            tabIndex="0"
+                                        />
+                                        <label
+                                            htmlFor="iconWomen"
+                                            style={{ cursor: "pointer" }}
+                                            onClick={() => setFormValues({ ...formValues, sex: "F" })}
+                                        >
+                                            <IconWomen />
+                                            <br />
+                                            <span>Mujer</span>
+                                        </label>
+                                    </Grid.Column>
+                                </Grid.Row>
+                            </Grid>
+                        </Container>
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <div className="slider-two">
+                            <Grid centered columns={3} verticalAlign="middle">
+                                <Grid.Column width={4}>
+                                    <div>
+                                        <IconFechaNacimiento />
+                                        <Date
+                                            className="justify-content"
+                                            handleDay={e =>
+                                                setFormValues({ ...formValues, birthDate: e })
+                                            }
+                                        />
+                                    </div>
+                                </Grid.Column>
+                                <Grid.Column width={4}>
+                                    <div>
+                                        <IconMundo />
+                                        <PlacesComplete
+                                            labelPlaceholder="Lugar de nacimiento"
+                                            setValue={e =>
+                                                setFormValues({ ...formValues, placeBirth: e })
+                                            }
+                                        />
+                                    </div>
+                                </Grid.Column>
+                                <Grid.Column width={4}>
+                                    <div>
+                                        <IconMapa />
+                                        <PlacesComplete
+                                            labelPlaceholder="Lugar de residencia"
+                                            setValue={e =>
+                                                setFormValues({ ...formValues, placeLived: e })
+                                            }
+                                        />
+                                    </div>
+                                </Grid.Column>
+                            </Grid>
+                        </div>
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <div className="slider-two">
+                            <Grid centered columns={3} verticalAlign="middle">
+                                <Grid.Column width={4}>
+                                    <div>
+                                        <IconAltura />
+                                        <CustomInput
+
+                                            placeholder="Altura (cm)"
+                                            type="number"
+                                            setValue={e =>
+                                                setFormValues({ ...formValues, height: e })
+                                            }
+                                        />
+                                    </div>
+                                </Grid.Column>
+                                <Grid.Column width={4}>
+                                    <div>
+                                        <IconPeso />
+                                        <CustomInput
+                                            placeholder="Peso (kg)"
+                                            type="number"
+                                            setValue={e =>
+                                                setFormValues({ ...formValues, weight: e })
+                                            }
+                                        />
+                                    </div>
+                                </Grid.Column>
+                                <Grid.Column width={4}>
+                                    <div>
+                                        <IconGotaSangre />
+
+                                        <SelectCustom
+                                            placeholder="Tipo de sangre"
+
+                                            dataOptions={bloodType}
+                                            setValue={e =>
+                                                setFormValues({ ...formValues, typeBlood: e })
+                                            }
+                                        />
+                                    </div>
+                                </Grid.Column>
+                            </Grid>
+                        </div>
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <div className="slider-two">
+                            <Grid centered columns={3} verticalAlign="middle">
+                                <Grid.Column width={4}>
+                                    <div>
+                                        <IconGradoEstudio />
+                                        <SelectCustom
+                                            placeholder="Grado de estudios"
+                                            labelName="grado"
+                                            dataOptions={gradesStudy}
+                                            name="gradoEstudio"
+                                            setValue={e =>
+                                                setFormValues({ ...formValues, studyGrade: e })
+                                            }
+                                        />
+                                    </div>
+                                </Grid.Column>
+                                <Grid.Column width={4}>
+                                    <div>
+                                        <IconSeguro />
+                                        <CustomInput
+                                            placeholder="Seguro médico"
+                                            setValue={e =>
+                                                setFormValues({ ...formValues, healthInsurance: e })
+                                            }
+                                        />
+                                    </div>
+                                </Grid.Column>
+                                <Grid.Column width={4}>
+                                    <div>
+                                        <IconOcupacion />
+                                        <CustomInput
+                                            placeholder="Ocupación"
+                                            setValue={e =>
+                                                setFormValues({ ...formValues, employment: e })
+                                            }
+                                        />
+                                    </div>
+                                </Grid.Column>
+                            </Grid>
+                        </div>
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <div className="slider-two">
+                            <Grid centered columns={3} verticalAlign="middle">
+                                <Grid.Column width={4}>
+                                    <div>
+                                        <IconReligion />
+                                        <SelectCustom
+                                            placeholder="Religión"
+                                            dataOptions={religion}
+                                            setValue={e =>
+                                                setFormValues({ ...formValues, religionSelected: e })
+                                            }
+                                        />
+                                    </div>
+                                </Grid.Column>
+                                <Grid.Column width={4}>
+                                    <div>
+                                        <IconEstadoCivil />
+                                        <SelectCustom
+                                            placeholder="Estado civil"
+                                            dataOptions={maritalStatus}
+                                            setValue={e =>
+                                                setFormValues({ ...formValues, stateMarital: e })
+                                            }
+                                        />
+                                    </div>
+                                </Grid.Column>
+                                <Grid.Column width={4}>
+                                    <div>
+                                        <IconDonador />
+                                        <SelectCustom
+                                            placeholder="Donador de organos"
+                                            dataOptions={ifNot}
+                                            setValue={e =>
+                                                setFormValues({ ...formValues, organDonor: e })
+                                            }
+                                        />
+                                    </div>
+                                </Grid.Column>
+                            </Grid>
+                        </div>
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <div className="vacunas">
+                            <Grid centered columns={16}>
+                                <Grid.Column computer={6} tablet={12} mobile={16} >
+                                    <Grid.Row className="vacunas__title" width={50}>
+                                        <h3>¿Te has vacunado en estos ultimos 6 meses?</h3>
+                                    </Grid.Row>
+                                    <Grid.Row className="vacunas__center">
+                                        <IconVacuna />
+                                    </Grid.Row>
+                                    <Grid.Row className="vacunas__center" >
+                                        <div className="optionYesOrNot">
+                                            <input
+                                                id="vacunaYes"
+                                                type="radio"
+                                                name="vacuna"
+                                                readOnly=""
+                                                tabIndex="0"
+                                                onClick={() => setFormValues({ ...formValues, vacunado: "Y" })}
+                                            />
+                                            <label
+                                                htmlFor="vacunaYes">
+                                                Sí
+                                            </label>
+                                        </div>
+                                        <div className="optionYesOrNot">
+                                            <input id="vacunaNo"
+                                                type="radio"
+                                                name="vacuna"
+                                                readOnly=""
+                                                tabIndex="0"
+                                                onClick={() => setFormValues({ ...formValues, vacunado: "N" })} />
+                                            <label
+                                                htmlFor="vacunaNo">
+                                                No</label>
+                                        </div>
+
+                                    </Grid.Row>
+                                    <Grid.Row className="vacunas__title-description">
+                                        <h3>En caso de ser "Sí" llenar lo siguiente (una por casilla)</h3>
+                                    </Grid.Row>
+                                    <Grid.Row className="vacunas__center" style={{ flexDirection: 'column' }}>
+                                        <CustomInput placeholder="¿Cuál fue?" areYouInLogin={true} />
+                                    </Grid.Row>
+                                    <Grid.Row className="vacunas__center" style={{ marginTop: '15px' }}>
+                                        <Button className=""><Icon name='plus' size='large' /></Button>
+                                    </Grid.Row>
+                                </Grid.Column>
+
+                            </Grid>
+                        </div>
+                    </SwiperSlide>
+                    <SwiperSlide style={{ 'position': 'relative' }}>
+                        <div className="info-basic">
+                            <Grid centered columns={16}>
+                                <Grid.Column computer={14} tablet={12} mobile={16}  >
+                                    {infoBasicDescriptionIcons.map((value, index) => (
+                                        <Grid.Row className="description" key={index}>
+                                            <div className="description-container">
+                                                <div className="icon">
+                                                    {value.iconFirst}
+                                                </div>
+                                                <div className="data">
+                                                    <label>{value.labelFirst} <Icon name="pencil alternate" size="small" /></label>
+                                                    <span>{value.dataFirst}</span>
+                                                </div>
+                                            </div>
+                                            <div className="description-container">
+                                                <div className="icon">
+                                                    {value.iconSecond}
+                                                </div>
+                                                <div className="data">
+                                                    <label>{value.labelSecond} <Icon name="pencil alternate" size="small" /></label>
+                                                    <span>{value.dataSecond}</span>
+                                                </div>
+                                            </div>
+                                        </Grid.Row>
+                                    ))}
+                                    <Grid.Row >
+                                        <Button className="button-info-basic">Guardar y Continuar</Button>
+                                    </Grid.Row>
+                                </Grid.Column>
+
+                            </Grid>
+                        </div>
+                    </SwiperSlide>
+                </Swiper>
+            </Grid.Row>
+
+        </Grid>
+    )
 }
