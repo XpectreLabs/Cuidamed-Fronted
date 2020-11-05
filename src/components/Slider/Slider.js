@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react"
 import { navigate } from 'gatsby'
 
 import Moment from 'react-moment';
+import 'moment/locale/es'
 import { Grid, Container, Icon, Button } from "semantic-ui-react"
 //icons
 import {
@@ -33,7 +34,7 @@ import { CustomInput } from "../inputsCustom/CustomInput"
 import PlacesComplete from "../PlacesComplete"
 
 // import Swiper core and required components
-import SwiperCore, { Navigation, Pagination, Scrollbar, A11y } from "swiper"
+import SwiperCore, { Navigation, Pagination, Scrollbar, A11y, HashNavigation } from "swiper"
 
 import { Swiper, SwiperSlide } from "swiper/react"
 
@@ -90,7 +91,7 @@ export default function Slider() {
     const infoBasicDescriptionIcons = [
         {
             iconFirst: <IconFechaNacimiento />,
-            dataFirst: <Moment date={birthDate} />,
+            dataFirst: <Moment date={birthDate} locale="es" format="LL"/>,
             labelFirst: "Fecha de nacimiento",
             iconSecond: <IconMundo />,
             dataSecond: placeBirth,
@@ -192,6 +193,7 @@ export default function Slider() {
                 else setIsValidIndex(false)
                 break
             case 6:
+                setTitleInfoBasic(true);
                 console.log(vacunado);
                 if (vacunado === false) {
                     setFormValues({ ...formValues, vacunado: "N" })
@@ -204,9 +206,13 @@ export default function Slider() {
                 }
                 break
             default:
+                setTitleInfoBasic(false);
                 break
         }
     }, [activeIndex, formValues])
+
+    const [titleInfoBasic, setTitleInfoBasic] = useState(false)
+    
 
     const saveAndContinue = e => {
         e.preventDefault()
@@ -267,11 +273,12 @@ export default function Slider() {
     }
     return (
         <Grid centered className="slider">
-            <h1 className="title">Información Básica</h1>
+            <h1 className={`title ${titleInfoBasic ? 'hidden-title' : ''}`}>Información Básica</h1>
             {/* <Grid.Row className="title">
             </Grid.Row > */}
 
             <Grid.Row>
+            {/* <h1 className={`title ${titleInfoBasic ? 'hidden-title' : ''}`}>Información Básica</h1> */}
                 <Swiper
                     spaceBetween={50}
                     slidesPerView={1}
@@ -285,12 +292,13 @@ export default function Slider() {
                     className="slider-content"
                     simulateTouch={false}
                 >
-                    <SwiperSlide>
+                    
+                    <SwiperSlide data-hash="slide1">
                         <Container verticalAlign="middle" >
                             {/* <Grid.Row>
                                 <h2>Sexo</h2>
                             </Grid.Row> */}
-                            <Grid verticalAlign="middle">
+                            <Grid verticalAlign="middle" name="sex">
                                 <Grid.Row className="inputs-sex" verticalAlign="middle">
                                     <Grid.Column floated="left" width={6}>
                                         <input
@@ -334,18 +342,19 @@ export default function Slider() {
                             </Grid>
                         </Container>
                     </SwiperSlide>
-                    <SwiperSlide>
+                    <SwiperSlide data-hash="slide2">
                         <div className="slider-two">
                             <Grid centered columns={3} verticalAlign="middle">
                                 <Grid.Column width={4}>
                                     <div>
-                                        <IconFechaNacimiento />
-                                        <Date
-                                            className="justify-content"
-                                            handleDay={e =>
-                                                setFormValues({ ...formValues, birthDate: e })
-                                            }
+                                        <IconFechaNacimiento/>
+                                        <Date className="justify-content"
+                                        placeholder="Fecha de nacimiento"
+                                        setValue={e =>
+                                            setFormValues({ ...formValues, birthDate: e })
+                                        }
                                         />
+                                        {/* <Text className="justify-content" labelPlaceholder="Fecha de nacimiento" name="fechaNacimiento" labelName="labelFechaNacimiento" /> */}
                                     </div>
                                 </Grid.Column>
                                 <Grid.Column width={4}>
@@ -373,7 +382,7 @@ export default function Slider() {
                             </Grid>
                         </div>
                     </SwiperSlide>
-                    <SwiperSlide>
+                    <SwiperSlide data-hash="slide3">
                         <div className="slider-two">
                             <Grid centered columns={3} verticalAlign="middle">
                                 <Grid.Column width={4}>
@@ -459,7 +468,7 @@ export default function Slider() {
                             </Grid>
                         </div>
                     </SwiperSlide>
-                    <SwiperSlide>
+                    <SwiperSlide data-hash="slide4">
                         <div className="slider-two">
                             <Grid centered columns={3} verticalAlign="middle">
                                 <Grid.Column width={4}>
@@ -501,7 +510,7 @@ export default function Slider() {
                             </Grid>
                         </div>
                     </SwiperSlide>
-                    <SwiperSlide>
+                    <SwiperSlide data-hash="slide5">
                         <div className="vacunas">
                             <Grid centered columns={16}>
                                 <Grid.Column computer={6} tablet={12} mobile={16} >
@@ -547,9 +556,11 @@ export default function Slider() {
                             </Grid>
                         </div>
                     </SwiperSlide>
-                    <SwiperSlide style={{ 'position': 'relative' }}>
+                    <SwiperSlide style={{ 'position': 'relative' }} data-hash="slide6">
                         <div className="info-basic">
                             <Grid centered columns={16}>
+                            <h1 className={`title ${titleInfoBasic ? '' : 'hidden-title'}`}>Información Básica</h1>
+                            {/* <h1 className="title">Información Básica</h1> */}
                                 <Grid.Column computer={14} tablet={12} mobile={16}  >
                                     {infoBasicDescriptionIcons.map((value, index) => (
                                         <Grid.Row className="description" key={index}>
