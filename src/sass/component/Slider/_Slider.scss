@@ -78,6 +78,13 @@
     }
     
     .vacunas {
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        overflow-y: scroll;
+        overflow-x: hidden;
 
         &__title{
             text-align: center;
@@ -115,7 +122,10 @@
 
         &__title-description {
             text-align: center;
-            margin-top: 2em;
+            margin-top: 1em;
+            &:last-of-type {
+                margin-bottom: 2em;
+            }
         }
 
  
@@ -176,7 +186,7 @@
         .row{
             
             >.button-info-basic{
-                width: 30%;
+               
                 margin-bottom: 3em;
             }
         }

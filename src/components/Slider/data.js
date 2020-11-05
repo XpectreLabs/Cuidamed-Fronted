@@ -35,7 +35,7 @@ const maritalStatus = [
 const ifNot = [
     { key: '1', value: '1', text: 'Sí' },
     { key: '2', value: '2', text: 'No' },
-    { key: '3', value: '3', text: 'Todavía no sé' },
+    { key: '3', value: '3', text: 'Todavía no lo sé' },
 ]
 
 export {
