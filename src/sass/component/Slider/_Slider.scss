@@ -1,12 +1,18 @@
-
-
 .slider {
     height: 100vh;
     max-height: 100vh;
+    
 
     .title {
         position: absolute;
         top: 1em;
+        opacity: 1;
+    }
+
+    .hidden-title {
+        // display: none;
+        transition: opacity 800ms ease;
+        opacity: 0;
     }
 
     .swiper-slide{
@@ -43,6 +49,12 @@
             //     position: abolute;
             //     margin-top: -200px;
             // }
+
+            >div {
+                >div {
+                    text-align: center;
+                }
+            }
 
             .hidden {
                 opacity: 0;

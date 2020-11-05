@@ -5,22 +5,24 @@ import "react-datepicker/dist/react-datepicker.css";
 import es from "date-fns/locale/es"
 registerLocale("es", es);
 
-const DateInput = ({name,labelName,labelPlaceholder}) => {
+const DateInput = ({
+  placeholder = "Input Example",
+  setValue = e=>{
+    console.log(e)
+  },
+}) => {
+  
   const [fecha,setFecha] = useState(null);
+  
   const handleInputChange = event => {
-    document.getElementById(labelName).classList.add("move-label");
+    setValue(event)
     setFecha(event)
     console.log(event);
-    if (event === null) {
-      document.getElementById(labelName).classList.remove("move-label")
-    }
+    
   }
 
     return (
-      <div className="date-input">
-        <label htmlFor={name} id={labelName}>
-         {labelPlaceholder}
-        </label>
+      <div className='input-container newDesign'>
         <DatePicker 
         selected={fecha} 
         onChange={handleInputChange} 
@@ -32,9 +34,11 @@ const DateInput = ({name,labelName,labelPlaceholder}) => {
         dropdownMode="select"
         maxDate={(new Date())} 
         fixedHeight
-        id={name}
+        placeholderText={placeholder}
         >
+          <label className="date" placeholder={placeholder}></label>
         </DatePicker>
+        {/* <label className="date" placeholder={placeholder}></label> */}
       </div>
     );
 

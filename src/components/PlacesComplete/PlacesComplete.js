@@ -51,8 +51,8 @@ const PlacesComplete = React.memo(
 
                   {suggestions.map(suggestion => {
                     const style = suggestion.active
-                      ? { backgroundColor: "#2c2e81", cursor: "pointer" }
-                      : { backgroundColor: "#ffffff", cursor: "pointer" }
+                      ? { backgroundColor: "#2c2e81", cursor: "pointer", textAlign: "left" }
+                      : { backgroundColor: "#ffffff", cursor: "pointer", textAlign: "left" }
                     return (
                       <div
                         key={suggestion.placeId}
