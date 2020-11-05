@@ -6,6 +6,7 @@ export const CustomInput = ({
   areYouInLogin = true,
   functionPlaces = null,
   setValue,
+  onblur = (e) => { },
 }) => {
 
 
@@ -14,7 +15,8 @@ export const CustomInput = ({
       <input
         type={type}
         placeholder={placeholder}
-        onChange={e => (setValue(e.currentTarget.value))}
+        onChange={e => { setValue(e.currentTarget.value) }}
+        onBlur={e => { onblur(e.currentTarget.value) }}
         {...functionPlaces} />
       <label placeholder={placeholder}></label>
     </div>

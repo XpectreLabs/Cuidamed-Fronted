@@ -1,15 +1,23 @@
-import React from "react"
+import React, { useState } from "react"
 import { Select } from "semantic-ui-react"
 
 export const SelectCustom = ({
   dataOptions,
   placeholder = "Input Example",
   type = "text",
-  setValue,
+  setValue = (e) => (console.log(e)),
+  id
 }) => {
 
-  const handleOpen = event => {
-    console.log(event);
+  const [addClass, setAddClass] = useState(false)
+
+  const handleSetValue = async event => {
+    if (event.currentTarget.children.length > 0)
+      setValue(event.currentTarget.children[0].innerHTML)
+    else setValue(event.currentTarget.innerHTML)
+  }
+  const handleOpen = async event => {
+    setAddClass(true);
   }
 
   return (
@@ -17,13 +25,10 @@ export const SelectCustom = ({
       <Select
         placeholder={placeholder}
         options={dataOptions}
-        className="custom-select"
-        onChange={e => {
-          if (e.target.children.length > 0)
-            setValue(e.target.children[0].innerHTML)
-          else setValue(e.target.innerHTML)
-        }}
+        className={`custom-select ${addClass ? "show-label" : ""}`}
+        onChange={handleSetValue}
         onOpen={handleOpen}
+
       />
       <label placeholder={placeholder}></label>
       {/* <input

@@ -35,15 +35,15 @@
 
   /* for mozilla */
   & > input[type="number"] {
-    -moz-appearance: textfield;
     text-align: center;
   }
 
   & > input::placeholder,
   & > input::-webkit-input-placeholder,
-  &>.react-datepicker-wrapper>.react-datepicker__input-container > input::placeholder {
+  & >.react-datepicker-wrapper>.react-datepicker__input-container > input::placeholder {
     color: $text-secondary;
   }
+
   & > input + label,
   & > .custom-select + label,
   & >.react-datepicker-wrapper>.react-datepicker__input-container > input + label  {
@@ -56,6 +56,7 @@
     left: 10px;
     color: transparent;
   }
+
   & > label::before {
     content: attr(placeholder);
     position: absolute;
@@ -69,7 +70,8 @@
   }
 
   & > input:not(:placeholder-shown) + label::before,
-  & >.react-datepicker-wrapper>.react-datepicker__input-container > input:not(:placeholder-shown) + label::before  {
+  & >.react-datepicker-wrapper>.react-datepicker__input-container > input:not(:placeholder-shown) + label::before, 
+  & > .show-label:not(:placeholder-shown) + label::before {
     top: -30px;
     opacity: 1;
   }
@@ -88,7 +90,8 @@
     }
 
     & > input:not(:placeholder-shown) + label::before,
-    & >.react-datepicker-wrapper>.react-datepicker__input-container > input:not(:placeholder-shown) + label::before{
+    & >.react-datepicker-wrapper>.react-datepicker__input-container > input:not(:placeholder-shown) + label::before,
+    & > .show-label:not(:placeholder-shown) + label::before{
       top: -20px;
       background-color: white;
       color: $text-secondary;
@@ -100,7 +103,8 @@
     }
 
     & >input:not(:placeholder-shown), 
-    & >.react-datepicker-wrapper>.react-datepicker__input-container > input:not(:placeholder-shown) {
+    & >.react-datepicker-wrapper>.react-datepicker__input-container > input:not(:placeholder-shown),
+    & >.show-label:not(:placeholder-shown) {
       padding-left: 25px;
       text-align: left;
     }
