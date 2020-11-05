@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react"
+import { navigate } from 'gatsby'
+
 import Moment from 'react-moment';
 import { Grid, Container, Icon, Button } from "semantic-ui-react"
 //icons
@@ -83,6 +85,8 @@ export default function Slider() {
         organDonor,
         vacunado,
     } = formValues
+
+    var stringVacunas = "";
     const infoBasicDescriptionIcons = [
         {
             iconFirst: <IconFechaNacimiento />,
@@ -137,7 +141,7 @@ export default function Slider() {
         },
         {
             iconFirst: <IconVacuna />,
-            dataSecond: vacunado,
+            dataFirst: vacunado,
             labelFirst: "Vacunas los últimos 6 meses",
             iconSecond: selectSex,
             dataSecond: sex,
@@ -150,6 +154,7 @@ export default function Slider() {
     ]
 
     useEffect(() => {
+        console.log(formValues);
         switch (activeIndex) {
             case 0:
                 if (sex != "" && sex != undefined) {
@@ -180,10 +185,86 @@ export default function Slider() {
                     setIsValidIndex(true)
                 else setIsValidIndex(false)
                 break
+            case 5:
+                if (vacunado !== "") {
+                    setIsValidIndex(true)
+                }
+                else setIsValidIndex(false)
+                break
+            case 6:
+                console.log(vacunado);
+                if (vacunado === false) {
+                    setFormValues({ ...formValues, vacunado: "N" })
+                } else if (vacunado === true) {
+                    let vacunasString = "Sí, ";
+                    totalVacunas.map((vacuna) => {
+                        vacunasString += " " + vacuna;
+                    })
+                    setFormValues({ ...formValues, vacunado: vacunasString })
+                }
+                break
             default:
                 break
         }
     }, [activeIndex, formValues])
+
+    const saveAndContinue = e => {
+        e.preventDefault()
+        navigate('/historial-medico');
+
+    }
+
+    const [vacunasNumber, setvacunasNumber] = useState();
+    const vacunasQuantity = [];
+    const [vacunasInput, setVacunasInput] = useState();
+    const [totalVacunas, setTotalVacunas] = useState([]);
+
+
+    const handleInputsVacunas = (e) => {
+        if (e > 0 && e < 4) {
+            for (let index = 0; index < e; index++) {
+                vacunasQuantity.push(<Grid.Row className="vacunas__title-description">
+                    <CustomInput
+                        placeholder="Nombre"
+                        areYouInLogin={true}
+                        type="text"
+
+                        setValue={e => { }}
+                        onblur={e => setTotalVacunas(totalVacunas => [...totalVacunas, e])}
+                    />
+                </Grid.Row>)
+            }
+            setVacunasInput(vacunasQuantity);
+
+        }
+        else {
+            setVacunasInput([]);
+            vacunasQuantity.length = 0;
+        }
+    }
+
+
+
+    const isVacunado = (bool) => {
+        if (bool) {
+            setFormValues({ ...formValues, vacunado: true })
+            setvacunasNumber(<>
+                <Grid.Row className="vacunas__title-description">
+                    <CustomInput
+                        placeholder="¿Cuantas fueron?"
+                        areYouInLogin={true}
+                        type="number"
+                        setValue={e => handleInputsVacunas(e)}
+                    />
+                </Grid.Row>
+            </>)
+        } else {
+            setFormValues({ ...formValues, vacunado: false })
+            setvacunasNumber("")
+            setVacunasInput([]);
+            vacunasQuantity.length = 0;
+        }
+    }
     return (
         <Grid centered className="slider">
             <h1 className="title">Información Básica</h1>
@@ -195,8 +276,8 @@ export default function Slider() {
                     spaceBetween={50}
                     slidesPerView={1}
                     navigation
-                    allowSlideNext={isValidIndex}
-                    allowSlidePrev={isValidIndex}
+                    // allowSlideNext={isValidIndex}
+                    // allowSlidePrev={isValidIndex}
                     pagination={{ clickable: false }}
                     // scrollbar={{ draggable: true }}
                     onSwiper={swiper => console.log(swiper)}
@@ -326,7 +407,6 @@ export default function Slider() {
 
                                         <SelectCustom
                                             placeholder="Tipo de sangre"
-
                                             dataOptions={bloodType}
                                             setValue={e =>
                                                 setFormValues({ ...formValues, typeBlood: e })
@@ -439,7 +519,7 @@ export default function Slider() {
                                                 name="vacuna"
                                                 readOnly=""
                                                 tabIndex="0"
-                                                onClick={() => setFormValues({ ...formValues, vacunado: "Y" })}
+                                                onClick={() => isVacunado(true)}
                                             />
                                             <label
                                                 htmlFor="vacunaYes">
@@ -452,22 +532,16 @@ export default function Slider() {
                                                 name="vacuna"
                                                 readOnly=""
                                                 tabIndex="0"
-                                                onClick={() => setFormValues({ ...formValues, vacunado: "N" })} />
+                                                onClick={() => isVacunado(false)} />
                                             <label
                                                 htmlFor="vacunaNo">
                                                 No</label>
                                         </div>
 
                                     </Grid.Row>
-                                    <Grid.Row className="vacunas__title-description">
-                                        <h3>En caso de ser "Sí" llenar lo siguiente (una por casilla)</h3>
-                                    </Grid.Row>
-                                    <Grid.Row className="vacunas__center" style={{ flexDirection: 'column' }}>
-                                        <CustomInput placeholder="¿Cuál fue?" areYouInLogin={true} />
-                                    </Grid.Row>
-                                    <Grid.Row className="vacunas__center" style={{ marginTop: '15px' }}>
-                                        <Button className=""><Icon name='plus' size='large' /></Button>
-                                    </Grid.Row>
+                                    {vacunasNumber}
+                                    {vacunasInput}
+
                                 </Grid.Column>
 
                             </Grid>
@@ -500,7 +574,7 @@ export default function Slider() {
                                         </Grid.Row>
                                     ))}
                                     <Grid.Row >
-                                        <Button className="button-info-basic">Guardar y Continuar</Button>
+                                        <Button className="button-info-basic" onClick={saveAndContinue}>Guardar y Continuar</Button>
                                     </Grid.Row>
                                 </Grid.Column>
 
