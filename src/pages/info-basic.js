@@ -5,7 +5,7 @@ import Slider from "../components/Slider"
 export default function InfoBasic() {
 
     return (
-        <BasicLayout view="info-basic">
+        <BasicLayout >
             <Slider />
         </BasicLayout >
     )
