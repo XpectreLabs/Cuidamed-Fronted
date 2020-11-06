@@ -17,7 +17,7 @@ const InputCustom = ({ labelPlaceholder, name, labelName, type = "text", functio
   }
 
   return (
-    <div className="input-custom">
+    <div className="input-container">
       <div className="labelText" id={labelName}>
         <label htmlFor={name} className="ui label" >
           {labelPlaceholder}
