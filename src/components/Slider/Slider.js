@@ -24,7 +24,6 @@ import {
 
 import { bloodType, gradesStudy, religion, maritalStatus, ifNot } from "./data"
 
-import Text from "../inputsCustom/Text"
 import Date from "../inputsCustom/Date"
 import { SelectCustom } from "../inputsCustom/Select/Select"
 import { CustomInput } from "../inputsCustom/CustomInput"

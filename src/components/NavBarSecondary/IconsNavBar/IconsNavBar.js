@@ -38,8 +38,6 @@ const dataIcons = [
 export default function IconsNavBar() {
 
 
-  console.log(window.location.pathname)
-
   return (
     <>
       {map(dataIcons, (icon, index) => {
