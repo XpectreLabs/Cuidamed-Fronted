@@ -1,3 +1,35 @@
 .container-enfermedades{
     background-color: red;
+
+    
 }
+
+.slider {
+
+    & .capeta-enfermedades {
+        & .row {
+
+            >h3 {
+                margin-top: 4.2em;
+                font-size: 1.5em;
+            }
+            .column {
+                >div {
+                    text-align: center;
+                }
+                svg {
+                    width: 8.5em;
+                    margin-bottom: 1em;
+                    text-align: center;
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
+       
+}
+
+// svg {
+//     width: 1em;
+//     text-align: center;
+// }

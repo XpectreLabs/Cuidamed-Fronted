@@ -272,7 +272,9 @@ export default function Slider() {
     }
     return (
         <Grid centered className="slider">
-            <h1 className={`title ${titleInfoBasic ? 'hidden-title' : ''}`}>Información Básica</h1>
+            <Grid.Row>
+                <h1 className={`title ${titleInfoBasic ? 'hidden-title' : ''}`}>Información Básica</h1>
+            </Grid.Row>
             {/* <Grid.Row className="title">
             </Grid.Row > */}
 

@@ -2,24 +2,33 @@
     height: 100vh;
     max-height: 100vh;
     
-
-    .title {
-        position: absolute;
-        top: 1em;
-        opacity: 1;
+    >.row:first-child {
+        height: 1em;
+        margin-top: 2em;
     }
 
-    .hidden-title {
-        // display: none;
-        transition: opacity 800ms ease;
-        opacity: 0;
-    }
+    // .title {
+    //     top: 4em;
+    //     opacity: 1;
+    //     // z-index: 3;
+    //     // position: absolute;
+    // }
+
+    // .hidden-title {
+    //     // display: none;
+    //     transition: opacity 800ms ease;
+    //     opacity: 0;
+    // }
 
     .swiper-slide{
         max-height: 100vh;
         >.ui.grid>.row{
             padding-top: 0;
         }
+    }
+
+    >.row:last-child {
+        height: 94%;
     }
 
     .swiper-container {
@@ -31,7 +40,7 @@
         //     // justify-content: space-between;
         //     align-items: center;
         // }
-
+       
         .container {
             height: inherit;
 
