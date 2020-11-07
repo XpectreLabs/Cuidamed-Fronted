@@ -1,3 +1,36 @@
+
+.title-diseas{
+    margin-left: 4em;
+    margin-top: 3em !important;
+}
+
 .container-enfermedades{
-    background-color: red;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-left: 4em;
+    margin-top: 2em;
+    &__btn {
+        // background-color: green;
+        width: 30%;
+        margin-bottom: 4.5em;
+        margin-left: 1.5em;
+        
+        &>label{
+            padding-top: 10px !important;
+            border-color: $main !important;
+            color: $main !important;
+        }
+
+        > input{
+            display: none;
+        }
+
+        & > input:checked+ label{
+            background-color: $main !important;
+            color: white !important;
+           
+        }
+    }
 }
