@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react"
 import { navigate } from 'gatsby'
 
 import Moment from 'react-moment';
-import { Grid, Container, Icon, Button } from "semantic-ui-react"
+import { Grid, Container, Icon, Button, GridColumn, GridRow } from "semantic-ui-react"
 
 
 // import Swiper core and required components
@@ -26,8 +26,11 @@ import {
     CarpRespiratorio,
     CarpSanguineo,
     CarpSexual,
-    CarpUrinario
+    CarpUrinario,
+    Oseo
 } from "../../../images/icons/icons"
+
+import { commonDiseases } from "./data"
 
 // import "./Slider.scss"
 // install Swiper components
@@ -35,10 +38,27 @@ SwiperCore.use([Navigation, Pagination, Scrollbar, A11y])
 
 export default function MedicalHistory() {
 
+    useEffect(() => {
+        console.log(listCommonDiseases);
+    }, [listCommonDiseases])
+
+    const [listCommonDiseases, setListCommonDiseases] = useState([])
+    const handleCheckedInput = e => {
+        console.log(e.currentTarget.checked);
+        console.log(listCommonDiseases)
+        const value = e.target.value
+
+        if (e.currentTarget.checked) {
+            setListCommonDiseases(listCommonDiseases => [...listCommonDiseases, value])
+        }
+
+    }
+
+
     return (
         <Grid centered className="slider">
-            <h1 className="title">Historial Médico</h1>
-            <Grid.Row columns={16}>
+            {/* <h1 className="title-diseas">Historial Médico</h1> */}
+            <Grid.Row >
                 <Swiper
                     spaceBetween={50}
                     slidesPerView={1}
@@ -53,13 +73,25 @@ export default function MedicalHistory() {
                     simulateTouch={false}
                 >
                     <SwiperSlide>
-                        <h2>¿Tienes algunas de estas enfermedades?</h2>
-                        <div className="container-enfermedades">
-                            <div className="">
-                                <input type="checkbox" id="enfermedad1"></input>
-                                <label htmlFor="enfermedad1" className="ui button" placeholder="hipertension">Hipertensión</label>
-                            </div>
-                        </div>
+                        <Container >
+                            <Grid>
+                                <Grid.Column computer={16} mobile={16} tablet={16}>
+                                    <Grid.Row>
+                                        <h2 className="title-diseas">¿Tienes algunas de estas enfermedades?</h2>
+                                    </Grid.Row>
+                                    <Grid.Row>
+                                        <div className="container-enfermedades">
+                                            {commonDiseases.map((disease, index) => (
+                                                <div key={index} className="container-enfermedades__btn">
+                                                    <input type="checkbox" id={disease.id} value={disease.id} onChange={handleCheckedInput}></input>
+                                                    <label htmlFor={disease.id} className="ui button">{disease.name}</label>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    </Grid.Row>
+                                </Grid.Column>
+                            </Grid>
+                        </Container>
                     </SwiperSlide>
                     <SwiperSlide>
                         <Grid className="capeta-enfermedades" centered >
@@ -143,20 +175,77 @@ export default function MedicalHistory() {
                     
                     <SwiperSlide>
                         <Grid centered>
-                            <Grid.Row>
+                            <Grid.Row className="system" centered>
+                                <h3 className="subtitle"><span className="subtitle-icon"><Oseo /></span>Sistema óseo</h3>
+                                <h3>Arrastre las enfermedades que tenga a mis enfermedades</h3>
+                            </Grid.Row>
+                            <Grid.Row columns="2">
+                                <Grid.Column className="diseases">
+                                    <GridRow>
+                                        <h3>Enfermedades</h3>
+                                    </GridRow>
+                                    <Grid.Row  className="plate">
+                                        <Grid.Row>
+                                            Cancer
+                                        </Grid.Row>
+                                        <Grid.Row>
+                                            Cancer
+                                        </Grid.Row>
+                                        <Grid.Row>
+                                            Cancer
+                                        </Grid.Row>
+                                        <Grid.Row>
+                                            Cancer
+                                        </Grid.Row>
+                                        <Grid.Row>
+                                            Cancer
+                                        </Grid.Row>
+                                        <Grid.Row>
+                                            Cancer
+                                        </Grid.Row>
+                                        <Grid.Row>
+                                            Cancer
+                                        </Grid.Row>
+                                        <Grid.Row>
+                                            Cancer
+                                        </Grid.Row>
+                                        <Grid.Row>
+                                            Cancer
+                                        </Grid.Row>
+                                        <Grid.Row>
+                                            Cancer
+                                        </Grid.Row>
+                                        <Grid.Row>
+                                            Cancer
+                                        </Grid.Row>
+                                        <Grid.Row>
+                                            Cancer
+                                        </Grid.Row>
+                                        <Grid.Row>
+                                            Cancer
+                                        </Grid.Row>
+                                        <Grid.Row>
+                                            Cancer
+                                        </Grid.Row>
+                                        <Grid.Row>
+                                            Cancer
+                                        </Grid.Row>
+                                        <Grid.Row>
+                                            Cancer
+                                        </Grid.Row>
+                                         
+                                        {/* <Grid.Column className="internal-plate">
+
+                                        </Grid.Column> */}
+                                    </Grid.Row>
+                                </Grid.Column>
                                 <Grid.Column>
-                                    <h3>Arrastre las enfermedades que tenga a mis enfermedades</h3>
+                                    <Grid.Row>
+                                        <h3>Mis enfermedades</h3>
+                                    </Grid.Row>
                                 </Grid.Column>
                             </Grid.Row>
                         </Grid>
-                        <Grid.Row>
-                            <Grid.Column>
-                                <h3>Enfermedades</h3>
-                            </Grid.Column>
-                            <Grid.Column>
-                                <h3>Mis enfermedades</h3>
-                            </Grid.Column>
-                        </Grid.Row>
 
                     </SwiperSlide>
                     <SwiperSlide>

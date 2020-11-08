@@ -90,7 +90,7 @@ export default function Slider() {
     const infoBasicDescriptionIcons = [
         {
             iconFirst: <IconFechaNacimiento />,
-            dataFirst: <Moment date={birthDate} locale="es" format="LL"/>,
+            dataFirst: <Moment date={birthDate} locale="es" format="LL" />,
             labelFirst: "Fecha de nacimiento",
             iconSecond: <IconMundo />,
             dataSecond: placeBirth,
@@ -211,7 +211,7 @@ export default function Slider() {
     }, [activeIndex, formValues])
 
     const [titleInfoBasic, setTitleInfoBasic] = useState(false)
-    
+
 
     const saveAndContinue = e => {
         e.preventDefault()
@@ -279,13 +279,13 @@ export default function Slider() {
             </Grid.Row > */}
 
             <Grid.Row>
-            {/* <h1 className={`title ${titleInfoBasic ? 'hidden-title' : ''}`}>Información Básica</h1> */}
+                {/* <h1 className={`title ${titleInfoBasic ? 'hidden-title' : ''}`}>Información Básica</h1> */}
                 <Swiper
-                    spaceBetween={50}
+                    spaceBetween={55}
                     slidesPerView={1}
                     navigation
-                    // allowSlideNext={isValidIndex}
-                    // allowSlidePrev={isValidIndex}
+                    allowSlideNext={isValidIndex}
+                    allowSlidePrev={isValidIndex}
                     pagination={{ clickable: false }}
                     // scrollbar={{ draggable: true }}
                     onSwiper={swiper => console.log(swiper)}
@@ -293,7 +293,7 @@ export default function Slider() {
                     className="slider-content"
                     simulateTouch={false}
                 >
-                    
+
                     <SwiperSlide data-hash="slide1">
                         <Container verticalAlign="middle" >
                             {/* <Grid.Row>
@@ -348,12 +348,12 @@ export default function Slider() {
                             <Grid centered columns={3} verticalAlign="middle">
                                 <Grid.Column width={4}>
                                     <div>
-                                        <IconFechaNacimiento/>
+                                        <IconFechaNacimiento />
                                         <Date className="justify-content"
-                                        placeholder="Fecha de nacimiento"
-                                        setValue={e =>
-                                            setFormValues({ ...formValues, birthDate: e })
-                                        }
+                                            placeholder="Fecha de nacimiento"
+                                            setValue={e =>
+                                                setFormValues({ ...formValues, birthDate: e })
+                                            }
                                         />
                                         {/* <Text className="justify-content" labelPlaceholder="Fecha de nacimiento" name="fechaNacimiento" labelName="labelFechaNacimiento" /> */}
                                     </div>
@@ -560,8 +560,8 @@ export default function Slider() {
                     <SwiperSlide style={{ 'position': 'relative' }} data-hash="slide6">
                         <div className="info-basic">
                             <Grid centered columns={16}>
-                            <h1 className={`title ${titleInfoBasic ? '' : 'hidden-title'}`}>Información Básica</h1>
-                            {/* <h1 className="title">Información Básica</h1> */}
+                                <h1 className={`title ${titleInfoBasic ? '' : 'hidden-title'}`}>Información Básica</h1>
+                                {/* <h1 className="title">Información Básica</h1> */}
                                 <Grid.Column computer={14} tablet={12} mobile={16}  >
                                     {infoBasicDescriptionIcons.map((value, index) => (
                                         <Grid.Row className="description" key={index}>
