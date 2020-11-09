@@ -25,6 +25,7 @@ import { ReactComponent as CarpRespiratorio } from "./CarpRespiratorio.svg"
 import { ReactComponent as CarpSanguineo } from "./CarpSanguineo.svg"
 import { ReactComponent as CarpSexual } from "./CarpSexual.svg"
 import { ReactComponent as CarpUrinario } from "./CarpUrinario.svg"
+import { ReactComponent as Oseo } from "./Oseo.svg"
 
 
 
@@ -55,4 +56,5 @@ export {
   CarpSanguineo,
   CarpSexual,
   CarpUrinario,
+  Oseo
 }

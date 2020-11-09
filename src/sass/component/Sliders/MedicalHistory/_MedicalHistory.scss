@@ -1,7 +1,11 @@
 
-.title-diseas{
-    margin-left: 4em;
-    margin-top: 3em !important;
+
+h2{
+    // margin-left: 4em;
+    // text-align: center;
+    // margin-top: 3em !important;
+    margin: 0 auto;
+    margin-top: 1em !important;
 }
 
 .container-enfermedades{
@@ -10,8 +14,9 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    margin-left: 4em;
-    margin-top: 2em;
+    padding: 1em;
+    // margin-left: 4em;
+    // margin-top: 2em;
     &__btn {
         // background-color: green;
         width: 30%;
@@ -38,18 +43,26 @@
 
 
 .slider {
+    
+    // .medical-history {
+    //     height: inherit !important;
+    //     margin-top: 0;
+    //     padding-top: 0;
+    // }
 
     >.row:first-child {
-        height: 100%;
-        margin-top: 0;
-        padding-top: 0;
+        height: 1em;
+        margin-top: 2em;
+    }
+    >.row:last-child {
+        height: 94%;
     }
 
     & .capeta-enfermedades {
         & .row {
 
             >h3 {
-                margin-top: 4.2em;
+                margin-top: 1.5em;
                 font-size: 1.5em;
             }
             .column {
@@ -105,7 +118,7 @@
 
 
 
-        .diseases {
+        .diseases.left {
             height: 60vh;
             
 
@@ -115,14 +128,50 @@
             }
             
             .plate {
-                margin-left: 8em;
-                margin-right: 8em;
+                margin-left: 6em;
+                margin-right: 6em;
                 // padding: 3em;
                 height: inherit;
                 border: 1em solid red;
-                border-top-width: 4em;
+                border-top-width: 3em;
                 border-radius: 2em;
                 height: 100%;
+                
+                >.row:first-child {
+                    height: 85%;
+                    overflow: scroll;
+                }
+
+                .no-disease {
+
+                    & .button {
+                        margin-top: 0.5em;
+                        width: fit-content;
+                        // margin-left: 1em;
+                        // margin-right: 1em;
+                        padding: 0.5em;
+                        height: auto;
+                        font-size: 1.3em;
+                        background-color: $main;
+                        color: #ffffff;
+                        border-color: $main;
+                    }
+                }
+
+
+            
+                .ui.button.disease {
+                    width: fit-content;
+                    height: auto;
+                    padding: 0.5em;
+                    padding-left: 1em;
+                    padding-right: 1em;
+                    margin-top: 1em;
+                    font-size: 1.3em;
+                    background-color: $font-grey;
+                    color: #ffffff;
+                    border-color: $font-grey;
+                }
 
                 // .internal-plate {
                 //     width: 100%;
@@ -132,9 +181,61 @@
                 //     border-top-left-radius: 2em;
                 // }
             }
+
+            
         }
-        
-        
+
+        .diseases.right {
+            height: 60vh;
+
+            h3 {
+                text-align: center;
+                margin-bottom: 1em;
+            }
+
+            .eyelash {
+                background-color: green;
+                width: 20em;
+                height: 3em;
+                border-top-left-radius: 2em;
+                border-top-right-radius: 2em;
+
+                .pacient p {
+                    color: white;
+                    line-height: 3.5em;
+                    margin-left: 1em;
+                }
+            }
+
+            .folder {
+                height: 53vh;
+                margin-right: 3.5em;
+                border: 3px solid green;
+                border-radius: 2em;
+                border-top-left-radius: 0;
+
+                .drag {
+                    height: 80% ;
+                }
+
+                & .no-disease {
+                    height: 20%;
+
+                        & .button {
+                            margin-top: 0.5em;
+                            width: fit-content;
+                            // margin-left: 1em;
+                            // margin-right: 1em;
+                            padding: 0.5em;
+                            height: auto;
+                            font-size: 1.3em;
+                            background-color: $main;
+                            color: #ffffff;
+                            border-color: $main;
+                        }
+                }
+            }
+        }
 
 
     }
