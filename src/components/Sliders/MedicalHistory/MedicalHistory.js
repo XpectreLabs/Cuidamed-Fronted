@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react"
 import { navigate } from 'gatsby'
 
 import Moment from 'react-moment';
-import { Grid, Container, Icon, Button, GridColumn } from "semantic-ui-react"
+import { Grid, Container, Icon, Button, GridColumn, GridRow } from "semantic-ui-react"
 
 
 // import Swiper core and required components
@@ -15,6 +15,20 @@ import "swiper/swiper.scss"
 import "swiper/components/navigation/navigation.scss"
 import "swiper/components/pagination/pagination.scss"
 import "swiper/components/scrollbar/scrollbar.scss"
+
+import {
+    CarpDigestivo,
+    CarpEndocrino,
+    CarpMuscular,
+    CarpNervioso,
+    CarpOseo,
+    CarpPiel,
+    CarpRespiratorio,
+    CarpSanguineo,
+    CarpSexual,
+    CarpUrinario,
+    Oseo
+} from "../../../images/icons/icons"
 
 import { commonDiseases } from "./data"
 
@@ -43,8 +57,10 @@ export default function MedicalHistory() {
 
     return (
         <Grid centered className="slider">
-            <h1 className="title">Historial Médico</h1>
-            <Grid.Row >
+            <Grid.Row>
+                <h1 className="title-diseas">Historial Médico</h1>
+            </Grid.Row>
+            <Grid.Row className="medical-history">
                 <Swiper
                     spaceBetween={50}
                     slidesPerView={1}
@@ -60,12 +76,13 @@ export default function MedicalHistory() {
                 >
                     <SwiperSlide>
                         <Container >
-                            <Grid>
+                            <Grid verticalAlign="middle">
+                                <Grid.Row>
+                                    {/* <h2 className="title-diseas">¿Tienes algunas de estas enfermedades?</h2> */}
+                                    <h2>¿Tienes algunas de estas enfermedades?</h2>
+                                </Grid.Row>
                                 <Grid.Column computer={16} mobile={16} tablet={16}>
-                                    <Grid.Row>
-                                        <h2 className="title-diseas">¿Tienes algunas de estas enfermedades?</h2>
-                                    </Grid.Row>
-                                    <Grid.Row>
+                                    <Grid.Row verticalAlign="middle">
                                         <div className="container-enfermedades">
                                             {commonDiseases.map((disease, index) => (
                                                 <div key={index} className="container-enfermedades__btn">
@@ -80,9 +97,158 @@ export default function MedicalHistory() {
                         </Container>
                     </SwiperSlide>
                     <SwiperSlide>
-
+                        <Grid className="capeta-enfermedades" centered >
+                            <Grid.Row>
+                                <h3>Enfermedades de:</h3>  
+                            </Grid.Row>
+                            <Grid.Row>
+                                <Grid.Column width={3}>
+                                    <div>
+                                        <CarpOseo />
+                                        <p>Sistema óseo</p>
+                                    </div>
+                                </Grid.Column>
+                                <Grid.Column width={3}>
+                                    <div>
+                                        <CarpMuscular />
+                                        <p>Sistema muscular</p>
+                                    </div>
+                                </Grid.Column>
+                                <Grid.Column width={3}>
+                                    <div>
+                                        <CarpSanguineo />
+                                        <p>Sistema circulatorio</p>
+                                    </div>
+                                </Grid.Column>
+                                <Grid.Column width={3}>
+                                    <div>
+                                        <CarpDigestivo />
+                                        <p>Sistema digestivo</p>
+                                    </div>
+                                </Grid.Column>
+                            </Grid.Row>
+                            <Grid.Row>
+                                <Grid.Column width={3}>
+                                    <div>
+                                        <CarpUrinario />
+                                        <p>Sistema urinario</p>
+                                    </div>
+                                </Grid.Column>
+                                <Grid.Column width={3}>
+                                    <div>
+                                        <CarpNervioso />
+                                        <p>Sistema nervioso</p>
+                                    </div>
+                                </Grid.Column>
+                                <Grid.Column width={3}>
+                                    <div>
+                                        <CarpSexual />
+                                        <p>Sistema reproductivo</p>
+                                    </div>
+                                </Grid.Column>
+                                <Grid.Column width={3}>
+                                    <div>
+                                        <CarpEndocrino />
+                                        <p>Sistema endocrino</p>
+                                    </div>
+                                </Grid.Column>
+                            </Grid.Row>
+                            <Grid.Row>
+                                <Grid.Column width={3}>
+                                    <div>
+                                        <CarpRespiratorio />
+                                        <p>Sistema respiratorio</p>
+                                    </div>
+                                </Grid.Column>
+                                <Grid.Column width={3}>
+                                    <div>
+                                        <CarpPiel />
+                                        <p>Piel</p>
+                                    </div>
+                                </Grid.Column>
+                                {/* <Grid.Column width={3}>
+                                    <div>
+                                        <IconMen />
+                                        <p>Cancer</p>
+                                    </div>
+                                </Grid.Column> */}
+                        </Grid.Row>
+                    </Grid>
                     </SwiperSlide>
+                    
                     <SwiperSlide>
+                        <Grid centered>
+                            <Grid.Row className="system" centered>
+                                <h3 className="subtitle"><span className="subtitle-icon"><Oseo /></span>Sistema óseo</h3>
+                                <h3>Arrastre las enfermedades que tenga a mis enfermedades</h3>
+                            </Grid.Row>
+                            <Grid.Row columns="2">
+                                <Grid.Column className="diseases left">
+                                    <GridRow>
+                                        <h3>Enfermedades</h3>
+                                    </GridRow>
+                                    <Grid.Row className="plate">
+                                        <Grid.Row>
+                                            <Grid.Row>
+                                                <p className="ui button disease">Acromegalia</p>
+                                            </Grid.Row>
+                                            <Grid.Row>
+                                                <p className="ui button disease">Artritis</p>
+                                            </Grid.Row>
+                                            <Grid.Row>
+                                                <p className="ui button disease">Artrosis</p>
+                                            </Grid.Row>
+                                            <Grid.Row>
+                                                <p className="ui button disease">Enfermedad de Paget</p>
+                                            </Grid.Row>
+                                            <Grid.Row>
+                                                <p className="ui button disease">Enfermedad de Perthes</p>
+                                            </Grid.Row>
+                                            <Grid.Row>
+                                                <p className="ui button disease">Osteodistrofia renal</p>
+                                            </Grid.Row>
+                                            <Grid.Row>
+                                                <p className="ui button disease">Osteogénesis imperfecta</p>
+                                            </Grid.Row>
+                                            <Grid.Row>
+                                                <p className="ui button disease">Osteomalacia</p>
+                                            </Grid.Row>
+                                            <Grid.Row>
+                                                <p className="ui button disease">Osteomielitis</p>
+                                            </Grid.Row>
+                                            <Grid.Row>
+                                                <p className="ui button disease">Osteoporosis</p>
+                                            </Grid.Row>
+                                        </Grid.Row>
+                                        <Grid.Row className="no-disease">
+                                            <Button>No encuentro mi enfermedad</Button>
+                                        </Grid.Row>
+
+                                        {/* <Grid.Column className="internal-plate">
+
+                                        </Grid.Column> */}
+                                    </Grid.Row>
+                                </Grid.Column>
+                                <Grid.Column className="diseases right">
+                                    <Grid.Row>
+                                        <h3>Mis enfermedades</h3>
+                                    </Grid.Row>
+                                    <Grid.Row className="eyelash">
+                                        <Grid.Row className="pacient">
+                                            <p>Fabrizio Castellanos</p>
+                                        </Grid.Row>
+                                    </Grid.Row>
+                                    <Grid.Row className="folder">
+                                        <Grid.Row className="drag">
+                                        </Grid.Row>
+                                        <Grid.Row className="no-disease">
+                                            <Button>No tengo ninguna de estas enfermedades</Button>
+                                        </Grid.Row>
+                                    </Grid.Row>
+                                    
+                                </Grid.Column>
+                            </Grid.Row>
+                        </Grid>
 
                     </SwiperSlide>
                     <SwiperSlide>

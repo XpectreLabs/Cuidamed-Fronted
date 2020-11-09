@@ -2,12 +2,17 @@
     height: 100vh;
     max-height: 100vh;
     
-
-    .title {
-        position: absolute;
-        top: 1em;
-        opacity: 1;
+    >.row:first-child {
+        height: 1em;
+        margin-top: 2em;
     }
+
+    // .title {
+    //     top: 4em;
+    //     opacity: 1;
+    //     // z-index: 3;
+    //     // position: absolute;
+    // }
 
     .hidden-title {
         // display: none;
@@ -22,6 +27,10 @@
         }
     }
 
+    >.row:last-child {
+        height: 94%;
+    }
+
     .swiper-container {
         margin-left: 1em;
         margin-right: 1em;
@@ -31,7 +40,7 @@
         //     // justify-content: space-between;
         //     align-items: center;
         // }
-
+       
         .container {
             height: inherit;
 
