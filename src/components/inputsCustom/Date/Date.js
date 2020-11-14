@@ -7,8 +7,9 @@ registerLocale("es", es);
 
 const DateInput = ({
   placeholder = "Input Example",
+  id = "date",
   setValue = e=>{
-    console.log(e)
+    // console.log(e)
   },
 }) => {
   
@@ -17,12 +18,16 @@ const DateInput = ({
   const handleInputChange = event => {
     setValue(event)
     setFecha(event)
-    console.log(event);
-    
+    document.getElementById(id).style.opacity = 1;
+    console.log(event)
+    if(event == null) {
+      document.getElementById(id).style.opacity = 0;
+    }
   }
 
     return (
       <div className='input-container newDesign'>
+        
         <DatePicker 
         selected={fecha} 
         onChange={handleInputChange} 
@@ -36,8 +41,9 @@ const DateInput = ({
         fixedHeight
         placeholderText={placeholder}
         >
-          <label className="date" placeholder={placeholder}></label>
         </DatePicker>
+        <label 
+        id={id} className="date" placeholder = {placeholder}></label>
         {/* <label className="date" placeholder={placeholder}></label> */}
       </div>
     );
