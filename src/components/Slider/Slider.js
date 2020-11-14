@@ -92,60 +92,74 @@ export default function Slider() {
             iconFirst: <IconFechaNacimiento />,
             dataFirst: <Moment date={birthDate} locale="es" format="LL" />,
             labelFirst: "Fecha de nacimiento",
+            slideFirst: 1,
             iconSecond: <IconMundo />,
             dataSecond: placeBirth,
-            labelSecond: "Lugar de nacimiento"
+            labelSecond: "Lugar de nacimiento",
+            slideSecond: 1
 
         },
         {
             iconFirst: <IconMapa />,
             dataFirst: placeLived,
             labelFirst: "Lugar de residencia",
+            slideFirst: 1,
             iconSecond: <IconAltura />,
             dataSecond: height,
-            labelSecond: "Altura (cm)"
+            labelSecond: "Altura (cm)",
+            slideSecond: 2
         },
         {
             iconFirst: <IconPeso />,
             dataFirst: weight,
             labelFirst: "Peso (kg)",
+            slideFirst: 2,
             iconSecond: <IconGotaSangre />,
             dataSecond: typeBlood,
-            labelSecond: "Tipo de sangre"
+            labelSecond: "Tipo de sangre",
+            slideSecond: 2
         },
         ,
         {
             iconFirst: <IconOcupacion />,
             dataFirst: employment,
             labelFirst: "Ocupación",
+            slideFirst: 3,
             iconSecond: <IconGradoEstudio />,
             dataSecond: studyGrade,
-            labelSecond: "Grado de estudios"
+            labelSecond: "Grado de estudios",
+            slideSecond: 3
         },
         ,
         {
             iconFirst: <IconDonador />,
             dataFirst: organDonor,
             labelFirst: "Donador de organos",
+            slideFirst: 4,
             iconSecond: <IconEstadoCivil />,
             dataSecond: stateMarital,
-            labelSecond: "Estado civil"
+            labelSecond: "Estado civil",
+            slideSecond: 4
         },
         {
             iconFirst: <IconReligion />,
             dataFirst: religionSelected,
             labelFirst: "Religión",
+            slideFirst: 4,
             iconSecond: <IconSeguro />,
             dataSecond: healthInsurance,
-            labelSecond: "Seguro Medico"
+            labelSecond: "Seguro Medico",
+            slideSecond: 3
         },
         {
             iconFirst: <IconVacuna />,
             dataFirst: vacunado,
             labelFirst: "Vacunas los últimos 6 meses",
+            slideFirst: 5,
             iconSecond: selectSex,
             dataSecond: sex,
-            labelSecond: "Sexo"
+            labelSecond: "Sexo",
+            lideSecond: 0
 
         }
         // ,
@@ -157,6 +171,7 @@ export default function Slider() {
         console.log(formValues);
         switch (activeIndex) {
             case 0:
+                setTitleInfoBasic(false);
                 if (sex != "" && sex != undefined) {
                     setIsValidIndex(true)
                     if (sex === "F") {
@@ -166,33 +181,38 @@ export default function Slider() {
                 else setIsValidIndex(false)
                 break
             case 1:
+                setTitleInfoBasic(false);
                 if (birthDate !== "" && placeBirth !== "" && placeLived !== "")
                     setIsValidIndex(true)
                 else setIsValidIndex(false)
                 break
             case 2:
+                setTitleInfoBasic(false);
                 if (height !== "" && weight !== "" && typeBlood !== "")
                     setIsValidIndex(true)
                 else setIsValidIndex(false)
                 break
             case 3:
+                setTitleInfoBasic(false);
                 if (studyGrade !== "" && healthInsurance !== "" && employment !== "")
                     setIsValidIndex(true)
                 else setIsValidIndex(false)
                 break
             case 4:
+                setTitleInfoBasic(false);
                 if (religionSelected !== "" && stateMarital !== "" && organDonor !== "")
                     setIsValidIndex(true)
                 else setIsValidIndex(false)
                 break
             case 5:
+                setTitleInfoBasic(true);
                 if (vacunado !== "") {
                     setIsValidIndex(true)
                 }
                 else setIsValidIndex(false)
                 break
             case 6:
-                setTitleInfoBasic(true);
+                // setTitleInfoBasic(true);
                 console.log(vacunado);
                 if (vacunado === false) {
                     setFormValues({ ...formValues, vacunado: "N" })
@@ -270,6 +290,17 @@ export default function Slider() {
             vacunasQuantity.length = 0;
         }
     }
+
+    // const [activeSlide, setActiveSlide] = useState(0);
+
+
+    // const handleEditarInfo = (e) => {    
+    //     e.preventDefault();
+    //     var mySwiper = document.querySelector('.swiper-container').swiper
+    //     // mySwiper.slideTo(0);
+    //     console.log(e);   
+    // }
+
     return (
         <Grid centered className="slider">
             <Grid.Row>
@@ -351,6 +382,7 @@ export default function Slider() {
                                         <IconFechaNacimiento />
                                         <Date className="justify-content"
                                             placeholder="Fecha de nacimiento"
+                                            id = "date"
                                             setValue={e =>
                                                 setFormValues({ ...formValues, birthDate: e })
                                             }
@@ -515,6 +547,7 @@ export default function Slider() {
                         <div className="vacunas">
                             <Grid centered columns={16}>
                                 <Grid.Column computer={6} tablet={12} mobile={16} >
+                                    <h1 className={`title ${titleInfoBasic ? '' : 'hidden-title'}`}>Información Básica</h1>
                                     <Grid.Row className="vacunas__title" width={50}>
                                         <h3>¿Te has vacunado en estos ultimos 6 meses?</h3>
                                     </Grid.Row>
@@ -560,9 +593,9 @@ export default function Slider() {
                     <SwiperSlide style={{ 'position': 'relative' }} data-hash="slide6">
                         <div className="info-basic">
                             <Grid centered columns={16}>
-                                <h1 className={`title ${titleInfoBasic ? '' : 'hidden-title'}`}>Información Básica</h1>
                                 {/* <h1 className="title">Información Básica</h1> */}
                                 <Grid.Column computer={14} tablet={12} mobile={16}  >
+                                    <h1 className={`title ${titleInfoBasic ? '' : 'hidden-title'}`}>Información Básica</h1>
                                     {infoBasicDescriptionIcons.map((value, index) => (
                                         <Grid.Row className="description" key={index}>
                                             <div className="description-container">
@@ -570,7 +603,8 @@ export default function Slider() {
                                                     {value.iconFirst}
                                                 </div>
                                                 <div className="data">
-                                                    <label>{value.labelFirst} <Icon name="pencil alternate" size="small" /></label>
+                                                    <label>{value.labelFirst} {value.slideFirst} <a href="#" ><Icon name="pencil alternate" size="small" /></a></label>
+                                                    {/* onClick={handleEditarInfo} */}
                                                     <span>{value.dataFirst}</span>
                                                 </div>
                                             </div>

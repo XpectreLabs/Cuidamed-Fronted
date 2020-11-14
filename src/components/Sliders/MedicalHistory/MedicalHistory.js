@@ -103,71 +103,131 @@ export default function MedicalHistory() {
                             </Grid.Row>
                             <Grid.Row>
                                 <Grid.Column width={3}>
-                                    <div>
+                                    <div className="carpeta">
                                         <CarpOseo />
-                                        <p>Sistema óseo</p>
+                                        <Grid.Row>
+                                            <Button>Incompleto</Button>
+                                            <Button>Editar</Button>
+                                        </Grid.Row>
+                                        <Grid.Row>
+                                            <p>Sistema óseo</p>
+                                        </Grid.Row>
                                     </div>
                                 </Grid.Column>
                                 <Grid.Column width={3}>
-                                    <div>
+                                    <div className="carpeta">
                                         <CarpMuscular />
-                                        <p>Sistema muscular</p>
+                                        <Grid.Row>
+                                            <Button>Incompleto</Button>
+                                            <Button>Editar</Button>
+                                        </Grid.Row>
+                                        <Grid.Row>
+                                            <p>Sistema muscular</p>
+                                        </Grid.Row>
                                     </div>
                                 </Grid.Column>
                                 <Grid.Column width={3}>
-                                    <div>
+                                    <div className="carpeta">
                                         <CarpSanguineo />
-                                        <p>Sistema circulatorio</p>
+                                        <Grid.Row>
+                                            <Button>Incompleto</Button>
+                                            <Button>Editar</Button>
+                                        </Grid.Row>
+                                        <Grid.Row>
+                                            <p>Sistema circulatorio</p>
+                                        </Grid.Row>
                                     </div>
                                 </Grid.Column>
                                 <Grid.Column width={3}>
-                                    <div>
+                                    <div className="carpeta">
                                         <CarpDigestivo />
-                                        <p>Sistema digestivo</p>
+                                        <Grid.Row>
+                                            <Button>Incompleto</Button>
+                                            <Button>Editar</Button>
+                                        </Grid.Row>
+                                        <Grid.Row>
+                                            <p>Sistema digestivo</p>
+                                        </Grid.Row>
                                     </div>
                                 </Grid.Column>
                             </Grid.Row>
                             <Grid.Row>
                                 <Grid.Column width={3}>
-                                    <div>
+                                    <div className="carpeta">
                                         <CarpUrinario />
-                                        <p>Sistema urinario</p>
+                                        <Grid.Row>
+                                            <Button>Incompleto</Button>
+                                            <Button>Editar</Button>
+                                        </Grid.Row>
+                                        <Grid.Row>
+                                            <p>Sistema urinario</p>
+                                        </Grid.Row>
                                     </div>
                                 </Grid.Column>
                                 <Grid.Column width={3}>
-                                    <div>
+                                    <div className="carpeta">
                                         <CarpNervioso />
-                                        <p>Sistema nervioso</p>
+                                        <Grid.Row>
+                                            <Button>Incompleto</Button>
+                                            <Button>Editar</Button>
+                                        </Grid.Row>
+                                        <Grid.Row>
+                                            <p>Sistema nervioso</p>
+                                        </Grid.Row>
                                     </div>
                                 </Grid.Column>
                                 <Grid.Column width={3}>
-                                    <div>
+                                    <div className="carpeta">
                                         <CarpSexual />
-                                        <p>Sistema reproductivo</p>
+                                        <Grid.Row>
+                                            <Button>Incompleto</Button>
+                                            <Button>Editar</Button>
+                                        </Grid.Row>
+                                        <Grid.Row>
+                                            <p>Sistema reproductivo</p>
+                                        </Grid.Row>
                                     </div>
                                 </Grid.Column>
                                 <Grid.Column width={3}>
-                                    <div>
+                                    <div className="carpeta">
                                         <CarpEndocrino />
-                                        <p>Sistema endocrino</p>
+                                        <Grid.Row>
+                                            <Button>Incompleto</Button>
+                                            <Button>Editar</Button>
+                                        </Grid.Row>
+                                        <Grid.Row>
+                                            <p>Sistema endocrino</p>
+                                        </Grid.Row>
                                     </div>
                                 </Grid.Column>
                             </Grid.Row>
                             <Grid.Row>
                                 <Grid.Column width={3}>
-                                    <div>
+                                    <div className="carpeta">
                                         <CarpRespiratorio />
-                                        <p>Sistema respiratorio</p>
+                                        <Grid.Row>
+                                            <Button>Incompleto</Button>
+                                            <Button>Editar</Button>
+                                        </Grid.Row>
+                                        <Grid.Row>
+                                            <p>Sistema respiratorio</p>
+                                        </Grid.Row>
                                     </div>
                                 </Grid.Column>
                                 <Grid.Column width={3}>
-                                    <div>
+                                    <div className="carpeta">
                                         <CarpPiel />
-                                        <p>Piel</p>
+                                        <Grid.Row>
+                                            <Button>Incompleto</Button>
+                                            <Button>Editar</Button>
+                                        </Grid.Row>
+                                        <Grid.Row>
+                                            <p>Piel</p>
+                                        </Grid.Row>
                                     </div>
                                 </Grid.Column>
                                 {/* <Grid.Column width={3}>
-                                    <div>
+                                    <div className="carpeta">
                                         <IconMen />
                                         <p>Cancer</p>
                                     </div>
